@@ -77,9 +77,9 @@ public class JuegoPersonaje extends Juego2DBase {
                 derecha = true;
             }
             if(derecha)
-                enemigos.get(i).mover(2, 0);
+                enemigos.get(i).avanzar();
             else
-                enemigos.get(i).mover(-2, 0);
+                enemigos.get(i).avanzar();
         }
     }
     @Override
