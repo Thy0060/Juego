@@ -36,4 +36,8 @@ public class Plataforma extends ObjetoGraficoMovil {
         this.colocar(incX, incY);
     }
     public void recibirImpacto(ObjetoGrafico f){}
+
+    public boolean noHay() {
+    return false;
+}
 }

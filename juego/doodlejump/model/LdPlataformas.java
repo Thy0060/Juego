@@ -42,9 +42,12 @@ public class LdPlataformas {
     public int size(){
         return plataformas.size();
     }
-    public void pintar(){
-        for(int i = 0; i < plataformas.size(); i++){
-            plataformas.get(i).pintar();
+    public void pintar() {
+    for (int i = 0; i < plataformas.size(); i++) {
+        Plataforma p = plataformas.get(i);
+        if (!p.noHay()) {
+            p.pintar();
         }
     }
+}
 }
