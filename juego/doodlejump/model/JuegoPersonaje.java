@@ -40,11 +40,11 @@ public class JuegoPersonaje extends Juego2DBase {
             }
             jugador.efectuarMovimiento(0, -velocidadY);
         }
-        if (hayColision()) {   
+        if (hayColision()){   
             velocidadY = FUERZA_SALTO;     
         }
-
     }
+
     private boolean hayColision(){
         boolean colision = false;
 
@@ -70,7 +70,7 @@ public class JuegoPersonaje extends Juego2DBase {
     @Override
     protected void finalizarJuego() {
         StdDraw.text(50, 50, "¡Juego Terminado!");
-        StdDraw.text(50, 40, "Puntuacion: " + LdPlataformas.puntuacion);
+        StdDraw.text(50, 45, "Puntuacion: " + LdPlataformas.puntuacion);
         StdDraw.show();
     }
 
