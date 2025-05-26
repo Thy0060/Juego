@@ -30,42 +30,9 @@ public class PlataformaFalsa extends Plataforma{
     }
 
     public void verificarColision() {
-        if (activa && !colision && colisionaCon(personajeRef)) {
-            colision = true;  
+        if (activa && !colision && colisionaCon(personajeRef)) {  
             activa = false;   
         }
-    }
-
-    public boolean estaActiva() {
-        return activa;
-    }
-
-    private boolean colisionaCon(Personaje pj) {
-        Punto centroPlataforma = ((Poligono) this.getFigura()).getCentroide();
-        Punto centroPersonaje = ((Poligono) pj.getFigura()).getCentroide();
-
-        double x = centroPlataforma.getX();
-        double y = centroPlataforma.getY();
-
-        double px = centroPersonaje.getX();
-        double py = centroPersonaje.getY();
-
-        double izquierda = x - Plataforma.ANCHO / 2;
-        double derecha = x + Plataforma.ANCHO / 2;
-        double abajo = y - Plataforma.ALTO / 2;
-        double arriba = y + Plataforma.ALTO / 2;
-
-        return (px >= izquierda && px <= derecha && py >= abajo && py <= arriba);
-    }
-
-    @Override
-    public void recibirImpacto(ObjetoGrafico f) {
-        verificarColision();
-    }
-
-    @Override
-    public void mover(double incX, double incY) {
-        this.colocar(incX, incY);
     }
 
     @Override
@@ -74,4 +41,35 @@ public class PlataformaFalsa extends Plataforma{
         getFigura().pintar(); // pinta solo si está activa
     }
 }
+
+    public boolean estaActiva() {
+        return activa;
+    }
+
+    private boolean colisionaCon(Personaje pj) {
+    if (!activa) return false; // ya no colisiona
+
+    Punto centroPlataforma = ((Poligono) this.getFigura()).getCentroide();
+    Punto centroPersonaje = ((Poligono) pj.getFigura()).getCentroide();
+
+    double x = centroPlataforma.getX();
+    double y = centroPlataforma.getY();
+
+    double px = centroPersonaje.getX();
+    double py = centroPersonaje.getY();
+
+    double izquierda = x - Plataforma.ANCHO / 2;
+    double derecha = x + Plataforma.ANCHO / 2;
+    double abajo = y - Plataforma.ALTO / 2;
+    double arriba = y + Plataforma.ALTO / 2;
+
+    return (px >= izquierda && px <= derecha && py >= abajo && py <= arriba);
+    }
+
+    @Override
+    public void mover(double incX, double incY) {
+        verificarColision();
+        this.colocar(incX, incY);
+    }
+
 }
