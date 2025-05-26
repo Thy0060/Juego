@@ -75,7 +75,7 @@ public class JuegoPersonaje extends Juego2DBase {
         for(int i = 0; i < plataformas.size(); i++){
             if(plataformas.get(i) instanceof PlataformaFalsa){
                 actual = (PlataformaFalsa) plataformas.get(i);
-                if(hayColision())
+                if(actual.hayColision(this.jugador))
                     actual.desactivar();
             }
         }
