@@ -12,12 +12,10 @@ public class Plataforma extends ObjetoGraficoMovil {
     public Personaje personajeRef = null;
     protected boolean activa = true;
     protected boolean colision = false;
-    protected double altura = 0;
 
     public Plataforma(double x, double y, Personaje personajeRef) {
         super(crearFigura(x, y), 1, 0, 0);
         this.personajeRef = personajeRef;
-        this.altura = crearFigura(x, y).getCentroide().getY();
     }
 
     private static IFigura crearFigura(double x, double y) {
@@ -35,7 +33,6 @@ public class Plataforma extends ObjetoGraficoMovil {
     }
     public void mover(double incX, double incY){
         this.colocar(incX, incY);
-        this.altura += incY;
     }
     public void recibirImpacto(ObjetoGrafico f){}
 }
