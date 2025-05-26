@@ -71,7 +71,7 @@ public class PlataformaFalsa extends Plataforma{
     @Override
     public void pintar() {
     if (activa) {
-        super.pintar(); // pinta solo si está activa
+        getFigura().pintar(); // pinta solo si está activa
     }
 }
 }
