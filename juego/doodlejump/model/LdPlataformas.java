@@ -9,6 +9,8 @@ public class LdPlataformas {
         this.personajeRef = personajeRef;
         for(int i = 0;i<10;i++){
             plataformas.add(new Plataforma(StdRandom.uniformDouble(5,95), (i+1)*30, personajeRef));
+            if(i==0)
+                plataformas.set(i, new Plataforma(50, 30, personajeRef));
         }
     }
     public void comprobarPlataformas(){

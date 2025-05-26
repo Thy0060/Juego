@@ -36,8 +36,8 @@ public class JuegoPersonaje extends Juego2DBase {
             }
             jugador.efectuarMovimiento(0, -velocidadY);
         }
-        if (hayColision() || StdDraw.isKeyPressed(FLECHA_ARRIBA)) {      // Flecha arriba
-            velocidadY = FUERZA_SALTO;       // Impulso vertical
+        if (hayColision()) {   
+            velocidadY = FUERZA_SALTO;     
         }
 
     }
