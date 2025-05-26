@@ -48,16 +48,12 @@ public class JuegoPersonaje extends Juego2DBase {
     private boolean hayColision(){
         boolean colision = false;
 
-        for(int i = 0; 
-        i < plataformas.size() 
-        && !colision
-        && jugador.getFigura().getCentroide().getY() >= plataformas.get(i).getFigura().getCentroide().getY()
-        && velocidadY<0; i++){
+        for(int i = 0; i < 5 && !colision && jugador.getFigura().getCentroide().getY() >= plataformas.get(i).getFigura().getCentroide().getY() && velocidadY < 0; i++){
             colision = plataformas.get(i).hayColision(jugador);
         }
         return colision;
     }
-    
+
     private boolean hayColisionEnemigo(){
         return enemigos.get(0).hayColision(jugador);
     }
