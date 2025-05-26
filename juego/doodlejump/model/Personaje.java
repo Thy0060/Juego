@@ -21,7 +21,6 @@ public class Personaje extends ObjetoGraficoDeUsuario {
     public static final int FLECHA_DERECHA = 39;
     public static final int FLECHA_IZQUIERDA = 37;
     
-    protected double altura = 50;
 
     public Personaje(){
         super(new Poligono(java.awt.Color.DARK_GRAY,
@@ -36,7 +35,6 @@ public class Personaje extends ObjetoGraficoDeUsuario {
     }
     public void efectuarMovimiento(double vX, double vY){
         this.colocar(vX,vY);
-        this.altura += vY;
     }
     public void aplicarImpulsoVertical(double fuerza) {
         velocidadY = fuerza;
