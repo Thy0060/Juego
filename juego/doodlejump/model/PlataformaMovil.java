@@ -31,6 +31,12 @@ public class PlataformaMovil extends Plataforma{
     public void recibirImpacto(ObjetoGrafico f){}
 
     public void mover(){
+        if(this.x < 0)
+            this.colocar(99, 0);
+        
+        if(this.x > 100)
+            this.colocar(-99, 0);
+        
         this.avanzar();
     }
 

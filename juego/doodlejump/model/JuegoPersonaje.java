@@ -93,5 +93,10 @@ public class JuegoPersonaje extends Juego2DBase {
         manejarMovimientoVertical();
         manejarMovimientoHorizontal();
         plataformas.comprobarPlataformas();
+        
+        for(int i = 0; plataformas.size() > i;i ++){
+            if(plataformas.get(i) instanceof PlataformaMovil)
+                plataformas.get(i).mover();
+        }
     }
 }
