@@ -45,6 +45,7 @@ public class LdPlataformas {
     public void pintar() {
     for (int i = 0; i < plataformas.size(); i++) {
         Plataforma p = plataformas.get(i);
+        p.mover(0, 0); 
         if (!p.noHay()) {
             p.pintar();
         }
