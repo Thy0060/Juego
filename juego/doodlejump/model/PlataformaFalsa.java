@@ -1,9 +1,11 @@
 package doodlejump.model;
 
-public class PlataformaFalsa extends Plataforma {
+import stdlib.StdDraw;
+import model.ObjetoGrafico;
+public class PlataformaFalsa extends Plataforma{
     public PlataformaFalsa(double x, double y, Personaje personajeRef) {
         super(x, y, personajeRef);
-        getFigura().setColor(Color.LIGHT_GRAY);
+        getFigura().setColor(StdDraw.LIGHT_GRAY);
     }
 
     @Override
