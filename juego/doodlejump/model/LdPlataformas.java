@@ -20,7 +20,13 @@ public class LdPlataformas {
     }
     public void generarNuevaPlataforma(){
         plataformas.remove(0);
-        plataformas.add(new PlataformaMovil(StdRandom.uniformDouble(5,95), plataformas.get(plataformas.size()-1).getFigura().getCentroide().getY() + 30, personajeRef));
+        int tipo = StdRandom.uniformInt(0, 3);
+        if(tipo == 0)
+            plataformas.add(new Plataforma(StdRandom.uniformDouble(5,95), plataformas.get(plataformas.size()-1).getFigura().getCentroide().getY() + 30, personajeRef, 0,0 ));
+        if(tipo == 1)
+            plataformas.add(new PlataformaMovil(StdRandom.uniformDouble(5,95), plataformas.get(plataformas.size()-1).getFigura().getCentroide().getY() + 30, personajeRef));
+        else
+            plataformas.add(new PlataformaFalsa(StdRandom.uniformDouble(5,95), plataformas.get(plataformas.size()-1).getFigura().getCentroide().getY() + 30, personajeRef));
     }
     public Plataforma get(int i){
         return plataformas.get(i);
