@@ -85,6 +85,7 @@ public class JuegoPersonaje extends Juego2DBase {
     @Override
     protected void finalizarJuego() {
         StdDraw.text(50, 50, "¡Juego Terminado!");
+        StdDraw.text(50, 40, "Puntuacion: " + LdPlataformas.puntuacion);
         StdDraw.show();
     }
 
@@ -116,7 +117,7 @@ public class JuegoPersonaje extends Juego2DBase {
         enemigos.comprobarEnemigos();
         moverEnemigos();
         
-        for(int i = 0; plataformas.size() > i;i ++){
+        for(int i = 0; plataformas.size() > i; i ++){
             if(plataformas.get(i) instanceof PlataformaMovil){
                 PlataformaMovil movil = (PlataformaMovil) plataformas.get(i); 
                 movil.mover(); 
