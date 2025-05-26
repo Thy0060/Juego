@@ -67,4 +67,11 @@ public class PlataformaFalsa extends Plataforma{
     public void mover(double incX, double incY) {
         this.colocar(incX, incY);
     }
+
+    @Override
+    public void pintar() {
+    if (activa) {
+        super.pintar(); // pinta solo si está activa
+    }
+}
 }
