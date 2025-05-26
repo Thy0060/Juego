@@ -78,5 +78,9 @@ public class PlataformaFalsa extends Plataforma{
         this.colocar(incX, incY);
     }
 
+    @Override
+    public boolean noHay() {
+    return !activa;
+    }
 
 }
