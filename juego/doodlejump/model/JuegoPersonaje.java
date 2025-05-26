@@ -36,7 +36,7 @@ public class JuegoPersonaje extends Juego2DBase {
             enemigos.comprobarEnemigos();
             for(int i = 0; i < plataformas.size(); i++){
                 plataformas.get(i).mover(0, -velocidadY);
-                enemigos.get(i).colocar(0,-velocidadY);
+                //enemigos.get(i).colocar(0,-velocidadY);
             }
             jugador.efectuarMovimiento(0, -velocidadY);
         }
