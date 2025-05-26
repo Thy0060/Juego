@@ -8,21 +8,22 @@ public class LdEnemigos {
 
 
     public LdEnemigos(Personaje personajeRef){
-        for(int i = 0;i<10;i++){
-            enemigos.add(new Enemigo(StdRandom.uniformDouble(5,95), (i+1)*300, personajeRef));
-        }
+        enemigos.add(new Enemigo(StdRandom.uniformDouble(5,95), 300, personajeRef));
+        enemigos.add(new Enemigo(StdRandom.uniformDouble(5,95), 400, personajeRef));
+        enemigos.add(new Enemigo(StdRandom.uniformDouble(5,95), 500, personajeRef));
     }
+
     public void comprobarEnemigos(){
         for(int i = 0; i < enemigos.size(); i++){
             if(enemigos.get(i).getFigura().getCentroide().getY() < 0){
                 generarNuevoEnemigo();
             }
         }
-        
     }
+
     public void generarNuevoEnemigo(){
         enemigos.remove(0);
-        enemigos.add(new Enemigo(StdRandom.uniformDouble(5,95), enemigos.get(enemigos.size()-1).getFigura().getCentroide().getY() + 300, personajeRef));
+        enemigos.add(new Enemigo(StdRandom.uniformDouble(5,95), enemigos.get(enemigos.size()-1).getFigura().getCentroide().getY() + StdRandom.uniformDouble(50, 300), personajeRef));
     }
 
     public Enemigo get(int i){

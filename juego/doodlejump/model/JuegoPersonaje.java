@@ -34,10 +34,11 @@ public class JuegoPersonaje extends Juego2DBase {
         if(jugador.getFigura().getCentroide().getY() > 50 && velocidadY > 0){
             plataformas.comprobarPlataformas();
             enemigos.comprobarEnemigos();
-            for(int i = 0; i < plataformas.size(); i++){
+            for(int i = 0; i < plataformas.size(); i++)
                 plataformas.get(i).mover(0, -velocidadY);
+            for(int i = 0; i < enemigos.size(); i++)
                 enemigos.get(i).colocar(0,-velocidadY);
-            }
+
             jugador.efectuarMovimiento(0, -velocidadY);
         }
         if (hayColision()){   
