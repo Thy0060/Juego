@@ -50,5 +50,14 @@ public class LdPlataformas {
             p.pintar();
         }
     }
-}
+    }
+
+    public void limpiarNoHay() {
+    for (int i = 0; i < plataformas.size(); i++) {
+        if (plataformas.get(i).noHay()) {
+            plataformas.remove(i);
+            i--; // importante: ajustar índice tras eliminar
+        }
+    }
+    }
 }

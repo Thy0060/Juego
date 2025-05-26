@@ -123,5 +123,6 @@ public class JuegoPersonaje extends Juego2DBase {
                 movil.mover(); 
             }
         }
+        plataformas.limpiarNoHay();
     }
 }
