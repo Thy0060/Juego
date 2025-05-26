@@ -97,6 +97,7 @@ public class JuegoPersonaje extends Juego2DBase {
     protected void pintarObjetos() {
         jugador.pintar();
         plataformas.pintar();
+        enemigos.pintar();
     }
 
     @Override
