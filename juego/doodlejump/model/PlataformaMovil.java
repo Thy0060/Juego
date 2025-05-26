@@ -1,14 +1,9 @@
 package doodlejump.model;
 
-import java.util.Arrays;
-import java.util.Random;
-
-import model.ObjetoGrafico;
-import model.base.IFigura;
-import model.base.Poligono;
-import model.base.Punto;
 import stdlib.StdDraw;
 import stdlib.StdRandom;
+
+import model.ObjetoGrafico;
 
 public class PlataformaMovil extends Plataforma{
     public static final double ANCHO = 12;

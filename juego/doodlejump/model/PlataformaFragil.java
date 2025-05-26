@@ -2,14 +2,6 @@ package doodlejump.model;
 
 import stdlib.StdDraw;
 
-import java.util.Arrays;
-
-import model.ObjetoGrafico;
-import model.ObjetoGraficoMovil;
-import model.base.IFigura;
-import model.base.Poligono;
-import model.base.Punto;
-
 public class PlataformaFragil extends Plataforma{
     protected boolean activa = true;
 
