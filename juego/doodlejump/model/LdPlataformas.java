@@ -53,14 +53,11 @@ public class LdPlataformas {
     }
 
     public void limpiarNoHay() {
-        int i = 0;
-        while (i < plataformas.size()) {
-            if (plataformas.get(i).noHay()) {
-                Plataforma p = plataformas.get(i);
-                plataformas.remove(p);  // Asegúrate que IList tiene este método
-            } else {
-                i++;
-            }
+    for (int i = 0; i < plataformas.size(); i++) {
+        if (plataformas.get(i).noHay()) {
+            plataformas.remove(i);
+            i--; // importante: ajustar índice tras eliminar
         }
     }
+}
 }
