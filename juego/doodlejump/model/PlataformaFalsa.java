@@ -80,7 +80,6 @@ public class PlataformaFalsa extends Plataforma{
 
     @Override
     public boolean noHay() {
-    return !activa;
+    return activa == false;
     }
-
 }
