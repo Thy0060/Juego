@@ -116,8 +116,10 @@ public class JuegoPersonaje extends Juego2DBase {
         moverEnemigos();
         
         for(int i = 0; plataformas.size() > i;i ++){
-            if(plataformas.get(i) instanceof PlataformaMovil)
-                plataformas.get(i).mover();
+            if(plataformas.get(i) instanceof PlataformaMovil){
+                PlataformaMovil movil = (PlataformaMovil) plataformas.get(i); 
+                movil.mover(); 
+            }
         }
     }
 }
