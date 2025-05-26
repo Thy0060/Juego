@@ -6,6 +6,7 @@ import model.base.Punto;
 public class JuegoPersonaje extends Juego2DBase {
     protected Personaje jugador;
     protected LdPlataformas plataformas = null;
+    protected LdEnemigos enemigos = null;
     private double velocidadY = 0;
     private double velocidadX = 0;
     private static final double GRAVEDAD = 0.3;
@@ -20,6 +21,7 @@ public class JuegoPersonaje extends Juego2DBase {
     public JuegoPersonaje() {
         this.jugador = new Personaje();
         this.plataformas = new LdPlataformas(jugador);
+        this.enemigos = new LdEnemigos(jugador);
         jugador.setImage("./doodle.png");
     }
 
@@ -53,7 +55,9 @@ public class JuegoPersonaje extends Juego2DBase {
         }
         return colision;
     }
-
+    private boolean hayColisionEnemigo(){
+        return enemigos.get(0).hayColision(jugador);
+    }
 
     private void manejarMovimientoHorizontal(){
         velocidadX = 0;
@@ -63,6 +67,21 @@ public class JuegoPersonaje extends Juego2DBase {
             velocidadX = 3; 
         jugador.efectuarMovimiento(velocidadX, 0);
     }
+    private void moverEnemigos(){
+        boolean derecha = true;
+        for(int i = 0; i < enemigos.size(); i++){
+            if(derecha && enemigos.get(i).getFigura().getCentroide().getX() > 100){
+                derecha = false;
+            }
+            if(!derecha && enemigos.get(i).getFigura().getCentroide().getX() < 0){
+                derecha = true;
+            }
+            if(derecha)
+                enemigos.get(i).mover(2, 0);
+            else
+                enemigos.get(i).mover(-2, 0);
+        }
+    }
     @Override
     protected void finalizarJuego() {
         StdDraw.text(50, 50, "¡Juego Terminado!");
@@ -71,7 +90,7 @@ public class JuegoPersonaje extends Juego2DBase {
 
     @Override
     protected boolean comprobarCondicionesSeguirJugando() {
-        return jugador.getFigura().getCentroide().getY() < 0;
+        return jugador.getFigura().getCentroide().getY() < 0 || hayColisionEnemigo();
     }
 
     @Override
@@ -93,6 +112,8 @@ public class JuegoPersonaje extends Juego2DBase {
         manejarMovimientoVertical();
         manejarMovimientoHorizontal();
         plataformas.comprobarPlataformas();
+        enemigos.comprobarEnemigos();
+        moverEnemigos();
         
         for(int i = 0; plataformas.size() > i;i ++){
             if(plataformas.get(i) instanceof PlataformaMovil)

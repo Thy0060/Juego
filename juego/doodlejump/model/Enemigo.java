@@ -25,4 +25,8 @@ public class Enemigo extends ObjetoGraficoMovil{
                 new Punto(x - ANCHO/2, y + ALTO/2)
             ));
     }
+    public void mover(double incX, double incY){
+        this.colocar(incX, incY);
+    }
+    public void recibirImpacto(ObjetoGrafico f){}
 }
