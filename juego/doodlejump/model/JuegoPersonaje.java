@@ -43,18 +43,34 @@ public class JuegoPersonaje extends Juego2DBase {
         }
 
     }
-    private boolean hayColision(){
-        boolean colision = false;
+    
+    private boolean hayColision() {
+    boolean colision = false;
 
-        for(int i = 0; 
-        i < plataformas.size() 
-        && !colision
-        && jugador.getFigura().getCentroide().getY() >= plataformas.get(i).getFigura().getCentroide().getY()
-        && velocidadY<0; i++){
-            colision = plataformas.get(i).hayColision(jugador);
+    for (int i = 0;
+         i < plataformas.size()
+         && jugador.getFigura().getCentroide().getY() >= 
+         plataformas.get(i).getFigura().getCentroide().getY()
+         && velocidadY < 0
+         && !colision;
+         i++) {
+
+        Plataforma p = plataformas.get(i);
+
+        if (p.hayColision(jugador)) {
+            
+            if (p instanceof PlataformaFalsa) {
+                PlataformaFalsa pf = (PlataformaFalsa) p;
+                if (pf.estaActiva()) {
+                    pf.verificarColision();
+                }
+            }
+            colision = true;
         }
-        return colision;
     }
+    return colision;
+    }
+
     private boolean hayColisionEnemigo(){
         return enemigos.get(0).hayColision(jugador);
     }

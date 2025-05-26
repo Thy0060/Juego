@@ -31,6 +31,7 @@ public class PlataformaFalsa extends Plataforma{
 
     public void verificarColision() {
         if (activa && !colision && colisionaCon(personajeRef)) {  
+            colision =  true;
             activa = false;   
         }
     }
