@@ -9,11 +9,11 @@ import model.base.Punto;
 public class Enemigo extends ObjetoGraficoMovil{
     public static final double ANCHO = 8;
     public static final double ALTO = 8;
-    public static final double VELOCIDAD = 2;
+    protected double velocidad = 2;
     public Personaje personajeRef = null;
 
     public Enemigo(double x, double y, Personaje personajeRef) {
-        super(crearFigura(x, y), 1, VELOCIDAD, 0);
+        super(crearFigura(x, y), 1, 0, 0);
         this.personajeRef = personajeRef;
     }
     private static IFigura crearFigura(double x, double y) {
@@ -25,8 +25,12 @@ public class Enemigo extends ObjetoGraficoMovil{
                 new Punto(x - ANCHO/2, y + ALTO/2)
             ));
     }
-    public void mover(double incX, double incY){
-        this.colocar(incX, incY);
+    public void avanzar(){
+        super.avanzar();
+        if(getFigura().getCentroide().getY() > 100)
+            velocidad = -velocidad;
+        if(getFigura().getCentroide().getY() < 0)
+            velocidad = -velocidad;
     }
     public void recibirImpacto(ObjetoGrafico f){}
 }
