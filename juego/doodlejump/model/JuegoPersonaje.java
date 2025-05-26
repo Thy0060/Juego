@@ -1,0 +1,97 @@
+package doodlejump.model;
+
+import stdlib.StdDraw;
+import juego.Juego2DBase;
+import model.base.Punto;
+public class JuegoPersonaje extends Juego2DBase {
+    protected Personaje jugador;
+    protected LdPlataformas plataformas = null;
+    private double velocidadY = 0;
+    private double velocidadX = 0;
+    private static final double GRAVEDAD = 0.3;
+    private static final double FUERZA_SALTO = 5;
+    private static final double VELOCIDAD_MAXIMA = -4;
+
+    public static final int FLECHA_ARRIBA = 38;
+    public static final int FLECHA_ABAJO = 40;
+    public static final int FLECHA_DERECHA = 39;
+    public static final int FLECHA_IZQUIERDA = 37;
+
+    public JuegoPersonaje() {
+        this.jugador = new Personaje();
+        this.plataformas = new LdPlataformas(jugador);
+        jugador.setImage("./doodle.png");
+    }
+
+    private void manejarMovimientoVertical(){
+        if(velocidadY > VELOCIDAD_MAXIMA)
+            velocidadY -= GRAVEDAD;
+
+        jugador.efectuarMovimiento(0,velocidadY);
+
+        if(jugador.getFigura().getCentroide().getY() > 50 && velocidadY > 0){
+            plataformas.comprobarPlataformas();
+            for(int i = 0; i < plataformas.size(); i++){
+                plataformas.get(i).mover(0, -velocidadY);
+            }
+            jugador.efectuarMovimiento(0, -velocidadY);
+        }
+        if (hayColision() || StdDraw.isKeyPressed(FLECHA_ARRIBA)) {      // Flecha arriba
+            velocidadY = FUERZA_SALTO;       // Impulso vertical
+        }
+
+    }
+    private boolean hayColision(){
+        boolean colision = false;
+
+        for(int i = 0; 
+        i < plataformas.size() 
+        && !colision
+        && jugador.getFigura().getCentroide().getY() >= plataformas.get(i).getFigura().getCentroide().getY()
+        && velocidadY<0; i++){
+            colision = plataformas.get(i).hayColision(jugador);
+        }
+        return colision;
+    }
+
+
+    private void manejarMovimientoHorizontal(){
+        velocidadX = 0;
+        if (StdDraw.isKeyPressed(FLECHA_IZQUIERDA)) 
+            velocidadX = -3;
+        if (StdDraw.isKeyPressed(FLECHA_DERECHA)) 
+            velocidadX = 3; 
+        jugador.efectuarMovimiento(velocidadX, 0);
+    }
+    @Override
+    protected void finalizarJuego() {
+        StdDraw.text(50, 50, "¡Juego Terminado!");
+        StdDraw.show();
+    }
+
+    @Override
+    protected boolean comprobarCondicionesSeguirJugando() {
+        return jugador.getFigura().getCentroide().getY() < 0;
+    }
+
+    @Override
+    protected void pintarObjetos() {
+        jugador.pintar();
+        plataformas.pintar();
+    }
+
+    @Override
+    protected void comprobarColisiones() {
+        Punto centro = jugador.getFigura().getCentroide();
+        if (centro.getX() < 0)
+            jugador.efectuarMovimiento(99, 0);
+        if(centro.getX() > 100)
+            jugador.efectuarMovimiento(-99, 0);
+    }
+    @Override
+    protected void moverObjetos() {
+        manejarMovimientoVertical();
+        manejarMovimientoHorizontal();
+        plataformas.comprobarPlataformas();
+    }
+}
