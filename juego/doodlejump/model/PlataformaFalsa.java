@@ -30,34 +30,35 @@ public class PlataformaFalsa extends Plataforma{
     }
 
     public void verificarColision() {
-        if (activa && colisionaCon(personajeRef)) {
-            activa = false;
+        if (activa && !colision && colisionaCon(personajeRef)) {
+            colision = true;  
+            activa = false;   
         }
     }
 
-     public boolean estaActiva() {
+    public boolean estaActiva() {
         return activa;
     }
-   
+
     private boolean colisionaCon(Personaje pj) {
-    
-    Punto centroPlataforma = ((Poligono) this.getFigura()).getCentroide();
-    Punto centroPersonaje = ((Poligono) pj.getFigura()).getCentroide();
+        Punto centroPlataforma = ((Poligono) this.getFigura()).getCentroide();
+        Punto centroPersonaje = ((Poligono) pj.getFigura()).getCentroide();
 
-    double x = centroPlataforma.getX();
-    double y = centroPlataforma.getY();
+        double x = centroPlataforma.getX();
+        double y = centroPlataforma.getY();
 
-    double px = centroPersonaje.getX();
-    double py = centroPersonaje.getY();
+        double px = centroPersonaje.getX();
+        double py = centroPersonaje.getY();
 
-    double izquierda = x - Plataforma.ANCHO / 2;
-    double derecha = x + Plataforma.ANCHO / 2;
-    double abajo = y - Plataforma.ALTO / 2;
-    double arriba = y + Plataforma.ALTO / 2;
+        double izquierda = x - Plataforma.ANCHO / 2;
+        double derecha = x + Plataforma.ANCHO / 2;
+        double abajo = y - Plataforma.ALTO / 2;
+        double arriba = y + Plataforma.ALTO / 2;
 
-    return (px >= izquierda && px <= derecha && py >= abajo && py <= arriba);
-}
-     @Override
+        return (px >= izquierda && px <= derecha && py >= abajo && py <= arriba);
+    }
+
+    @Override
     public void recibirImpacto(ObjetoGrafico f) {
         verificarColision();
     }
