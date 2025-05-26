@@ -14,11 +14,22 @@ public class LdPlataformas {
                 plataformas.set(i, new Plataforma(50, 30, personajeRef, 0, 0));
         }
     }
+
     public void comprobarPlataformas(){
         if(plataformas.get(0).getFigura().getCentroide().getY()<0){
             generarNuevaPlataforma();
         }
+
+        PlataformaFragil actual = null;
+        for(int i = 0; i < plataformas.size(); i++){
+            if(plataformas.get(i) instanceof PlataformaFragil){
+                actual = (PlataformaFragil) plataformas.get(i);
+                if(actual.hayColision(this.personajeRef))
+                    this.plataformas.remove(i);
+            }
+        }
     }
+
     public void generarNuevaPlataforma(){
         plataformas.remove(0);
         LdPlataformas.puntuacion += 10;
@@ -32,32 +43,23 @@ public class LdPlataformas {
             LdPlataformas.puntuacion += 75;
         }
         else{
-            plataformas.add(new PlataformaFalsa(StdRandom.uniformDouble(5,95), plataformas.get(plataformas.size()-1).getFigura().getCentroide().getY() + 30, personajeRef));
+            plataformas.add(new PlataformaFragil(StdRandom.uniformDouble(5,95), plataformas.get(plataformas.size()-1).getFigura().getCentroide().getY() + 30, personajeRef));
             LdPlataformas.puntuacion += 50;
         }
     }
     public Plataforma get(int i){
         return plataformas.get(i);
     }
+    
     public int size(){
         return plataformas.size();
     }
+
     public void pintar() {
-    for (int i = 0; i < plataformas.size(); i++) {
-        Plataforma p = plataformas.get(i);
-        p.mover(0, 0); 
-        if (!p.noHay()) {
-            p.pintar();
+        for (int i = 0; i < plataformas.size(); i++) {
+            plataformas.get(i).pintar();
         }
-    }
     }
 
-    public void limpiarNoHay() {
-    for (int i = 0; i < plataformas.size(); i++) {
-        if (plataformas.get(i).noHay()) {
-            plataformas.remove(i);
-            i--; // importante: ajustar índice tras eliminar
-        }
-    }
 }
-}
+
