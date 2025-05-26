@@ -1,5 +1,6 @@
 package doodlejump.model;
 
 public class Enemigo {
-    Miguel angel maricon 
+    samuel maricon 
+    alejandro maricon
 }
