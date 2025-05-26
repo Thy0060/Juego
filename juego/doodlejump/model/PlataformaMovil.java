@@ -20,16 +20,6 @@ public class PlataformaMovil extends Plataforma{
         this.getFigura().setColor(StdDraw.BLUE);
     }
 
-    private static IFigura crearFigura(double x, double y) {
-        return new Poligono(java.awt.Color.BLUE, new Punto(x, y),
-            Arrays.asList(
-                new Punto(x - ANCHO/2, y - ALTO/2),
-                new Punto(x + ANCHO/2, y - ALTO/2),
-                new Punto(x + ANCHO/2, y + ALTO/2),
-                new Punto(x - ANCHO/2, y + ALTO/2)
-            ));
-    }
-
     public boolean estaActiva() {
         return activa;
     }
