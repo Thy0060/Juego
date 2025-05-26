@@ -15,7 +15,7 @@ public class PlataformaFalsa extends Plataforma{
     protected boolean colision = false;
 
     public PlataformaFalsa(double x, double y, Personaje personajeRef) {
-        super(x, y, personajeRef);
+        super(x, y, personajeRef, 0, 0);
         this.getFigura().setColor(StdDraw.LIGHT_GRAY);
     }
 
