@@ -6,6 +6,7 @@ import model.ObjetoGraficoMovil;
 import model.base.IFigura;
 import model.base.Poligono;
 import model.base.Punto;
+
 public class Plataforma extends ObjetoGraficoMovil {
     public static final double ANCHO = 12;
     public static final double ALTO = 3;
@@ -13,12 +14,12 @@ public class Plataforma extends ObjetoGraficoMovil {
     protected boolean activa = true;
     protected boolean colision = false;
 
-    public Plataforma(double x, double y, Personaje personajeRef) {
-        super(crearFigura(x, y), 1, 0, 0);
+    public Plataforma(double x, double y, Personaje personajeRef, double incX, double incY){
+        super(crearFigura(x, y), 1, incX, incY);
         this.personajeRef = personajeRef;
     }
 
-    private static IFigura crearFigura(double x, double y) {
+    private static IFigura crearFigura(double x, double y){
         return new Poligono(java.awt.Color.GREEN, new Punto(x, y),
             Arrays.asList(
                 new Punto(x - ANCHO/2, y - ALTO/2),
