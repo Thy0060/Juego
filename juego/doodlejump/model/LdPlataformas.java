@@ -8,9 +8,9 @@ public class LdPlataformas {
     public LdPlataformas(Personaje personajeRef){
         this.personajeRef = personajeRef;
         for(int i = 0;i<10;i++){
-            plataformas.add(new Plataforma(StdRandom.uniformDouble(5,95), (i+1)*30, personajeRef));
+            plataformas.add(new Plataforma(StdRandom.uniformDouble(5,95), (i+1)*30, personajeRef, 0, 0));
             if(i==0)
-                plataformas.set(i, new Plataforma(50, 30, personajeRef));
+                plataformas.set(i, new Plataforma(50, 30, personajeRef, 0, 0));
         }
     }
     public void comprobarPlataformas(){
@@ -20,7 +20,7 @@ public class LdPlataformas {
     }
     public void generarNuevaPlataforma(){
         plataformas.remove(0);
-        plataformas.add(new Plataforma(StdRandom.uniformDouble(5,95), plataformas.get(plataformas.size()-1).getFigura().getCentroide().getY() + 30, personajeRef));
+        plataformas.add(new PlataformaMovil(StdRandom.uniformDouble(5,95), plataformas.get(plataformas.size()-1).getFigura().getCentroide().getY() + 30, personajeRef));
     }
     public Plataforma get(int i){
         return plataformas.get(i);
