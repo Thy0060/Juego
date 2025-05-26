@@ -13,11 +13,11 @@ public class Enemigo extends ObjetoGraficoMovil{
     public Personaje personajeRef = null;
 
     public Enemigo(double x, double y, Personaje personajeRef) {
-        super(crearFigura(x, y), 1, 0, 0);
+        super(crearFigura(x, y), 1, 2, 0);
         this.personajeRef = personajeRef;
     }
     private static IFigura crearFigura(double x, double y) {
-        return new Poligono(java.awt.Color.GREEN, new Punto(x, y),
+        return new Poligono(java.awt.Color.RED, new Punto(x, y),
             Arrays.asList(
                 new Punto(x - ANCHO/2, y - ALTO/2),
                 new Punto(x + ANCHO/2, y - ALTO/2),
@@ -25,12 +25,10 @@ public class Enemigo extends ObjetoGraficoMovil{
                 new Punto(x - ANCHO/2, y + ALTO/2)
             ));
     }
-    public void avanzar(){
-        super.avanzar();
-        if(getFigura().getCentroide().getY() > 100)
-            velocidad = -velocidad;
-        if(getFigura().getCentroide().getY() < 0)
-            velocidad = -velocidad;
+    public void mover(){
+        if (getFigura().getCentroide().getX()<0 || getFigura().getCentroide().getX()>100 )
+            setIncX(-getIncX());
+        this.avanzar();
     }
     public void recibirImpacto(ObjetoGrafico f){}
 }

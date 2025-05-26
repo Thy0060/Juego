@@ -33,8 +33,10 @@ public class JuegoPersonaje extends Juego2DBase {
 
         if(jugador.getFigura().getCentroide().getY() > 50 && velocidadY > 0){
             plataformas.comprobarPlataformas();
+            enemigos.comprobarEnemigos();
             for(int i = 0; i < plataformas.size(); i++){
                 plataformas.get(i).mover(0, -velocidadY);
+                enemigos.get(i).colocar(0,-velocidadY);
             }
             jugador.efectuarMovimiento(0, -velocidadY);
         }
@@ -67,19 +69,15 @@ public class JuegoPersonaje extends Juego2DBase {
             velocidadX = 3; 
         jugador.efectuarMovimiento(velocidadX, 0);
     }
-    private void moverEnemigos(){
-        boolean derecha = true;
-        for(int i = 0; i < enemigos.size(); i++){
-            if(derecha && enemigos.get(i).getFigura().getCentroide().getX() > 100){
-                derecha = false;
+    
+    private void comprobarPlataformasFalsas(){
+        PlataformaFalsa actual = null;
+        for(int i = 0; i < plataformas.size(); i++){
+            if(plataformas.get(i) instanceof PlataformaFalsa){
+                actual = (PlataformaFalsa) plataformas.get(i);
+                if(hayColision())
+                    actual.desactivar();
             }
-            if(!derecha && enemigos.get(i).getFigura().getCentroide().getX() < 0){
-                derecha = true;
-            }
-            if(derecha)
-                enemigos.get(i).avanzar();
-            else
-                enemigos.get(i).avanzar();
         }
     }
     @Override
@@ -115,14 +113,13 @@ public class JuegoPersonaje extends Juego2DBase {
         manejarMovimientoHorizontal();
         plataformas.comprobarPlataformas();
         enemigos.comprobarEnemigos();
-        moverEnemigos();
-        
+        enemigos.mover();
+        comprobarPlataformasFalsas();
         for(int i = 0; plataformas.size() > i; i ++){
             if(plataformas.get(i) instanceof PlataformaMovil){
                 PlataformaMovil movil = (PlataformaMovil) plataformas.get(i); 
                 movil.mover(); 
             }
         }
-        plataformas.limpiarNoHay();
     }
 }
