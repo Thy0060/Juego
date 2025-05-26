@@ -24,17 +24,21 @@ public class LdEnemigos {
         enemigos.remove(0);
         enemigos.add(new Enemigo(StdRandom.uniformDouble(5,95), enemigos.get(enemigos.size()-1).getFigura().getCentroide().getY() + 300, personajeRef));
     }
+
     public Enemigo get(int i){
         return enemigos.get(i);
     }
+
     public int size(){
         return enemigos.size();
     }
+
     public void pintar(){
         for(int i = 0; i < enemigos.size(); i++){
             enemigos.get(i).pintar();
         }
     }
+    
     public void mover(){
         for(int i = 0; i < enemigos.size(); i++){
             if (enemigos.get(i).getFigura().getCentroide().getX()<0 || enemigos.get(i).getFigura().getCentroide().getX()>100 )

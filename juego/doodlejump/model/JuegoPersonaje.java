@@ -41,7 +41,8 @@ public class JuegoPersonaje extends Juego2DBase {
             jugador.efectuarMovimiento(0, -velocidadY);
         }
         if (hayColision()){   
-            velocidadY = FUERZA_SALTO;     
+            velocidadY = FUERZA_SALTO;
+            plataformas.comprobarPlataformasFragiles();     
         }
     }
 

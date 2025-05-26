@@ -13,7 +13,7 @@ public class Enemigo extends ObjetoGraficoMovil{
     public Personaje personajeRef = null;
 
     public Enemigo(double x, double y, Personaje personajeRef) {
-        super(crearFigura(x, y), 1, 2, 0);
+        super(crearFigura(x, y), 1, 1.5, 0);
         this.personajeRef = personajeRef;
     }
     private static IFigura crearFigura(double x, double y) {
