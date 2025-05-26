@@ -35,16 +35,16 @@ public class LdPlataformas {
         plataformas.remove(0);
         LdPlataformas.puntuacion += 10;
         int tipo = StdRandom.uniformInt(0, 6);
-        if(tipo <= 4){
-            plataformas.add(new Plataforma(StdRandom.uniformDouble(5,95), plataformas.get(plataformas.size()-1).getFigura().getCentroide().getY() + 30, personajeRef, 0,0 ));
+        if(tipo < 4){
+            plataformas.add(new Plataforma(StdRandom.uniformDouble(5,95), plataformas.get(plataformas.size()-1).getFigura().getCentroide().getY() + StdRandom.uniformDouble(20, 30), personajeRef, 0,0 ));
             LdPlataformas.puntuacion += 25;
         }
-        if(tipo == 5){
-            plataformas.add(new PlataformaMovil(StdRandom.uniformDouble(5,95), plataformas.get(plataformas.size()-1).getFigura().getCentroide().getY() + 30, personajeRef));
+        if(tipo == 5 || tipo == 4){
+            plataformas.add(new PlataformaMovil(StdRandom.uniformDouble(5,95), plataformas.get(plataformas.size()-1).getFigura().getCentroide().getY() + StdRandom.uniformDouble(10, 30), personajeRef));
             LdPlataformas.puntuacion += 75;
         }
         else{
-            plataformas.add(new PlataformaFragil(StdRandom.uniformDouble(5,95), plataformas.get(plataformas.size()-1).getFigura().getCentroide().getY() + 30, personajeRef));
+            plataformas.add(new PlataformaFragil(StdRandom.uniformDouble(5,95), plataformas.get(plataformas.size()-1).getFigura().getCentroide().getY() + StdRandom.uniformDouble(10, 30), personajeRef));
             LdPlataformas.puntuacion += 50;
         }
     }
