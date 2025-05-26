@@ -24,7 +24,7 @@ public class LdPlataformas {
         for(int i = 0; i < plataformas.size(); i++){
             if(plataformas.get(i) instanceof PlataformaFragil){
                 actual = (PlataformaFragil) plataformas.get(i);
-                if(actual.hayColision(this.personajeRef) && (this.personajeRef.getFigura().getCentroide().getY() - 10 >= actual.getFigura().getCentroide().getY()))
+                if(actual.hayColision(this.personajeRef) && (this.personajeRef.getFigura().getCentroide().getY() - 6 >= actual.getFigura().getCentroide().getY()))
                     this.plataformas.remove(i);
             }
         }
