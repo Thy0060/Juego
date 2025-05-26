@@ -9,7 +9,7 @@ public class LdEnemigos {
 
     public LdEnemigos(Personaje personajeRef){
         for(int i = 0;i<10;i++){
-            enemigos.add(new Enemigo(StdRandom.uniformDouble(5,95), (i+1)*444, personajeRef));
+            enemigos.add(new Enemigo(StdRandom.uniformDouble(35,55), (i+1)*30, personajeRef));
         }
     }
     public void comprobarEnemigos(){
@@ -22,7 +22,7 @@ public class LdEnemigos {
     }
     public void generarNuevoEnemigo(){
         enemigos.remove(0);
-        enemigos.add(new Enemigo(StdRandom.uniformDouble(5,95), enemigos.get(enemigos.size()-1).getFigura().getCentroide().getY() + 444, personajeRef));
+        enemigos.add(new Enemigo(StdRandom.uniformDouble(35,55), enemigos.get(enemigos.size()-1).getFigura().getCentroide().getY() + 30, personajeRef));
     }
     public Enemigo get(int i){
         return enemigos.get(i);
