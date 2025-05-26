@@ -36,18 +36,18 @@ public class LdPlataformas {
         LdPlataformas.puntuacion += 10;
         int tipo = StdRandom.uniformInt(0, 5);
         if(tipo < 3){
-            plataformas.add(new Plataforma(StdRandom.uniformDouble(5,45), plataformas.get(plataformas.size()-1).getFigura().getCentroide().getY() + StdRandom.uniformDouble(20, 30), personajeRef, 0,0 ));
-            plataformas.add(new Plataforma(StdRandom.uniformDouble(55,95), plataformas.get(plataformas.size()-1).getFigura().getCentroide().getY() + StdRandom.uniformDouble(20, 30), personajeRef, 0,0 ));
+            plataformas.add(new Plataforma(StdRandom.uniformDouble(5,45), plataformas.get(plataformas.size()-1).getFigura().getCentroide().getY() + StdRandom.uniformDouble(15, 20), personajeRef, 0,0 ));
+            plataformas.add(new Plataforma(StdRandom.uniformDouble(55,95), plataformas.get(plataformas.size()-1).getFigura().getCentroide().getY() + StdRandom.uniformDouble(15, 20), personajeRef, 0,0 ));
             LdPlataformas.puntuacion += 25;
         }
         if(tipo == 3){
-            plataformas.add(new PlataformaMovil(StdRandom.uniformDouble(5,45), plataformas.get(plataformas.size()-1).getFigura().getCentroide().getY() + StdRandom.uniformDouble(10, 30), personajeRef));
+            plataformas.add(new PlataformaMovil(StdRandom.uniformDouble(5,45), plataformas.get(plataformas.size()-1).getFigura().getCentroide().getY() + StdRandom.uniformDouble(15, 20), personajeRef));
             plataformas.add(new Plataforma(StdRandom.uniformDouble(55,95), plataformas.get(plataformas.size()-1).getFigura().getCentroide().getY() + StdRandom.uniformDouble(20, 30), personajeRef, 0,0 ));
             LdPlataformas.puntuacion += 75;
         }
         else{
-            plataformas.add(new PlataformaFragil(StdRandom.uniformDouble(5,45), plataformas.get(plataformas.size()-1).getFigura().getCentroide().getY() + StdRandom.uniformDouble(10, 30), personajeRef));
-            plataformas.add(new Plataforma(StdRandom.uniformDouble(55,95), plataformas.get(plataformas.size()-1).getFigura().getCentroide().getY() + StdRandom.uniformDouble(20, 30), personajeRef, 0,0 ));
+            plataformas.add(new PlataformaFragil(StdRandom.uniformDouble(5,45), plataformas.get(plataformas.size()-1).getFigura().getCentroide().getY() + StdRandom.uniformDouble(15, 20), personajeRef));
+            plataformas.add(new Plataforma(StdRandom.uniformDouble(55,95), plataformas.get(plataformas.size()-1).getFigura().getCentroide().getY() + StdRandom.uniformDouble(15, 20), personajeRef, 0,0 ));
             LdPlataformas.puntuacion += 50;
         }
     }
