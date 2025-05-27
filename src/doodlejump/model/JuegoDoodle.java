@@ -24,8 +24,8 @@ public class JuegoDoodle extends Juego2DBase {
 
     public JuegoDoodle() {
         this.jugador = new Personaje();
-        this.plataformas = new LdPlataformas(jugador);
-        this.enemigos = new LdEnemigos(jugador);
+        this.plataformas = new LdPlataformas();
+        this.enemigos = new LdEnemigos();
         this.fondo = new Fondo();
     }
 

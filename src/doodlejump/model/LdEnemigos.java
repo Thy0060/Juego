@@ -5,12 +5,11 @@ import stdlib.StdRandom;
 
 public class LdEnemigos {
     protected IList<Enemigo> enemigos = new ArrayList<>();
-    private Personaje personajeRef;
 
-    public LdEnemigos(Personaje personajeRef){
-        enemigos.add(new Enemigo(StdRandom.uniformDouble(5,95), 300, personajeRef));
-        enemigos.add(new Enemigo(StdRandom.uniformDouble(5,95), 500, personajeRef));
-        enemigos.add(new Enemigo(StdRandom.uniformDouble(5,95), 700, personajeRef));
+    public LdEnemigos(){
+        enemigos.add(new Enemigo(StdRandom.uniformDouble(5,95), 300));
+        enemigos.add(new Enemigo(StdRandom.uniformDouble(5,95), 500));
+        enemigos.add(new Enemigo(StdRandom.uniformDouble(5,95), 700));
     }
 
     public void comprobarEnemigos(){
@@ -20,7 +19,7 @@ public class LdEnemigos {
 
     public void generarNuevoEnemigo(){
         enemigos.remove(0);
-        enemigos.add(new Enemigo(StdRandom.uniformDouble(5,95), enemigos.get(enemigos.size()-1).getFigura().getCentroide().getY() + StdRandom.uniformDouble(100, 300), personajeRef));
+        enemigos.add(new Enemigo(StdRandom.uniformDouble(5,95), enemigos.get(enemigos.size()-1).getFigura().getCentroide().getY() + StdRandom.uniformDouble(100, 300)));
     }
 
     public Enemigo get(int i){
