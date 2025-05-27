@@ -67,9 +67,9 @@ public class JuegoPersonaje extends Juego2DBase {
     private void manejarMovimientoHorizontal(){
         velocidadX = 0;
         if (StdDraw.isKeyPressed(FLECHA_IZQUIERDA)) 
-            velocidadX = -3;
+            velocidadX = -2;
         if (StdDraw.isKeyPressed(FLECHA_DERECHA)) 
-            velocidadX = 3; 
+            velocidadX = 2; 
         jugador.efectuarMovimiento(velocidadX, 0);
     }
 
