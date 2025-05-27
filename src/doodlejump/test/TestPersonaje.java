@@ -1,6 +1,6 @@
-package doodlejump.test;
+package src.doodlejump.test;
 
-import doodlejump.model.JuegoPersonaje;
+import src.doodlejump.model.JuegoPersonaje;
 
 public class TestPersonaje {
     public static void main(String[] args) {

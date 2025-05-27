@@ -1,4 +1,4 @@
-package doodlejump.model;
+package src.doodlejump.model;
 
 import stdlib.StdDraw;
 
