@@ -6,10 +6,10 @@ import src.soporte.Juego2DBase;
 import src.soporte.base.Punto;
 
 public class JuegoDoodle extends Juego2DBase {
-    protected Personaje jugador;
-    protected LdPlataformas plataformas;
-    protected LdEnemigos enemigos;
-    protected Fondo fondo;
+    private final Personaje jugador;
+    private final LdPlataformas plataformas;
+    private final LdEnemigos enemigos;
+    private final Fondo fondo;
     private double velocidadY = 0;
     private double velocidadX = 0;
 

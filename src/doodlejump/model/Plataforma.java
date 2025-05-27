@@ -19,7 +19,7 @@ public class Plataforma extends ObjetoGraficoMovil {
                 new Punto(x + ancho/2, y - alto/2),
                 new Punto(x + ancho/2, y + alto/2),
                 new Punto(x - ancho/2, y + alto/2))), 
-            1, incX, incY);
+            2000, incX, incY);
         this.setImage(plataforma);
     }
     
