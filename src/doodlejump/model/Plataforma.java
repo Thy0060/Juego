@@ -15,7 +15,11 @@ public class Plataforma extends ObjetoGraficoMovil {
     public static final String PLATAFORMA = "./plataforma.png";
 
     public Plataforma(double x, double y, Personaje personajeRef, double incX, double incY){
+<<<<<<< HEAD
         super(crearFigura(x, y), 0, incX, incY);
+=======
+        super(crearFigura(x, y), 1, incX, incY);
+>>>>>>> 32c741e233757ed695ccf8b673a074c1be4d5007
         this.personajeRef = personajeRef;
         this.setImage(PLATAFORMA);
     }
