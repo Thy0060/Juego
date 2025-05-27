@@ -9,8 +9,8 @@ public class JuegoPersonaje extends Juego2DBase {
     protected LdEnemigos enemigos = null;
     private double velocidadY = 0;
     private double velocidadX = 0;
-    private static final double GRAVEDAD = 0.3;
-    private static final double FUERZA_SALTO = 5;
+    private static final double GRAVEDAD = 0.2;
+    private static final double FUERZA_SALTO = 4;
     private static final double VELOCIDAD_MAXIMA = -4;
 
     public static final int FLECHA_ARRIBA = 38;

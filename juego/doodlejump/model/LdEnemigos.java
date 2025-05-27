@@ -9,8 +9,8 @@ public class LdEnemigos {
 
     public LdEnemigos(Personaje personajeRef){
         enemigos.add(new Enemigo(StdRandom.uniformDouble(5,95), 300, personajeRef));
-        enemigos.add(new Enemigo(StdRandom.uniformDouble(5,95), 400, personajeRef));
         enemigos.add(new Enemigo(StdRandom.uniformDouble(5,95), 500, personajeRef));
+        enemigos.add(new Enemigo(StdRandom.uniformDouble(5,95), 700, personajeRef));
     }
 
     public void comprobarEnemigos(){

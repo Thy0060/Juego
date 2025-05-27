@@ -6,16 +6,15 @@ import model.ObjetoGraficoMovil;
 import model.base.IFigura;
 import model.base.Poligono;
 import model.base.Punto;
-import stdlib.StdRandom;
 public class Enemigo extends ObjetoGraficoMovil{
     public static final double ANCHO = 8;
     public static final double ALTO = 8;
     public static final String PERSONAJE_IMAGE = "./enemigo.png";
-    protected double velocidad = 2;
+    protected double velocidad = 1;
     public Personaje personajeRef = null;
 
     public Enemigo(double x, double y, Personaje personajeRef) {
-        super(crearFigura(x, y), 1, StdRandom.uniformDouble(1,3), 0);
+        super(crearFigura(x, y), 1, 1, 0);
         this.personajeRef = personajeRef;
         setImage(PERSONAJE_IMAGE);
     }
