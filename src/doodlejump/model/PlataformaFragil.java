@@ -11,9 +11,4 @@ public static final String plataformaFragil = "./plataformaFragil.png";
         setImage(plataformaFragil);
     }
     
-    @Override
-    public void mover(double incX, double incY) {
-        this.colocar(incX, incY);
-    }
-
 }

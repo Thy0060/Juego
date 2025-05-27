@@ -11,14 +11,13 @@ import src.soporte.base.Punto;
 public class Plataforma extends ObjetoGraficoMovil {
     public static final double ANCHO = 12;
     public static final double ALTO = 3;
-    public Personaje personajeRef = null;
-    protected boolean colision = false;
+    public Personaje personajeRef;
     public static final String plataforma = "./plataforma.png";
 
     public Plataforma(double x, double y, Personaje personajeRef, double incX, double incY){
         super(crearFigura(x, y), 1, incX, incY);
         this.personajeRef = personajeRef;
-        setImage(plataforma);
+        this.setImage(plataforma);
     }
 
     private static IFigura crearFigura(double x, double y){
@@ -29,10 +28,6 @@ public class Plataforma extends ObjetoGraficoMovil {
                 new Punto(x + ANCHO/2, y + ALTO/2),
                 new Punto(x - ANCHO/2, y + ALTO/2)
             ));
-    }
-
-    public void mover(double incX, double incY){
-        this.colocar(incX, incY);
     }
     
     public void recibirImpacto(ObjetoGrafico f){}

@@ -32,7 +32,7 @@ public class Enemigo extends ObjetoGraficoMovil{
     }
 
     public void mover(){
-        if (getFigura().getCentroide().getX()<0 || getFigura().getCentroide().getX()>100 )
+        if (getFigura().getCentroide().getX()<0 || getFigura().getCentroide().getX()>100)
             setIncX(-getIncX());
         this.avanzar();
     }

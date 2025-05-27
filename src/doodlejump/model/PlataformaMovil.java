@@ -12,7 +12,7 @@ public static final String plataformaMovil = "./plataformaMovil.png";
         this.setImage(plataformaMovil);
     }
 
-    public void moverHorizontal(){
+    public void mover(){
         if(this.getFigura().getCentroide().getX() < 0)
             this.colocar(99, 0);
         

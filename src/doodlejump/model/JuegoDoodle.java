@@ -48,7 +48,7 @@ public class JuegoDoodle extends Juego2DBase {
         for(int i = 0; plataformas.size() > i; i ++){
             if(plataformas.get(i) instanceof PlataformaMovil){
                 PlataformaMovil movil = (PlataformaMovil) plataformas.get(i); 
-                movil.moverHorizontal(); 
+                movil.mover(); 
             }
         }
     }
@@ -76,7 +76,7 @@ public class JuegoDoodle extends Juego2DBase {
             plataformas.comprobarPlataformas();
             enemigos.comprobarEnemigos();
             for(int i = 0; i < plataformas.size(); i++)
-                plataformas.get(i).mover(0, -velocidadY);
+                plataformas.get(i).colocar(0, -velocidadY);
             for(int i = 0; i < enemigos.size(); i++)
                 enemigos.get(i).colocar(0,-velocidadY);
 
