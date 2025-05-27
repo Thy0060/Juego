@@ -77,9 +77,22 @@ public class JuegoPersonaje extends Juego2DBase {
 
     @Override
     protected void finalizarJuego() {
-        StdDraw.text(50, 50, "¡Juego Terminado!");
-        StdDraw.text(50, 45, "Puntuacion: " + LdPlataformas.puntuacion);
+        StdDraw.setPenColor(StdDraw.BLACK);
+        StdDraw.text(50, 60, "¡Juego Terminado!");
+        StdDraw.text(50, 50, "Puntuación: " + LdPlataformas.puntuacion);
+        StdDraw.text(50, 40, "Pulsa 'R' para reiniciar");
         StdDraw.show();
+        boolean reiniciarJuego = false;
+
+        while (!reiniciarJuego) {
+            if (StdDraw.isKeyPressed('R')) {
+                reiniciarJuego = true;
+            }
+            StdDraw.pause(50);
+        }
+
+        reiniciar(); 
+        jugar();    
     }
 
     @Override
@@ -118,4 +131,16 @@ public class JuegoPersonaje extends Juego2DBase {
             }
         }
     }
+
+    public void reiniciar() {
+        this.jugador = new Personaje();
+        this.velocidadX = 0;
+        this.velocidadY = 0;
+    
+        this.plataformas = new LdPlataformas(jugador);
+        this.enemigos = new LdEnemigos(jugador);
+        this.fondo = new Fondo();
+
+        LdPlataformas.puntuacion = 0;
+}
 }
