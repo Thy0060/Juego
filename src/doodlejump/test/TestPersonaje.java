@@ -4,7 +4,7 @@ import stdlib.StdDraw;
 
 import src.doodlejump.model.JuegoDoodle;
 
-public class TestPersonaje {
+final class TestPersonaje{
 public static void main(String[] args) {
         while(true){
             JuegoDoodle juego = new JuegoDoodle();

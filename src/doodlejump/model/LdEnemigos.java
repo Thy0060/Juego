@@ -3,48 +3,48 @@ package src.doodlejump.model;
 import tads.*;
 import stdlib.StdRandom;
 
-public class LdEnemigos {
-    protected IList<Enemigo> enemigos = new ArrayList<>();
+final class LdEnemigos {
+    protected final IList<Enemigo> enemigos = new ArrayList<>();
 
-    public LdEnemigos(){
+    protected LdEnemigos(){
         enemigos.add(new Enemigo(StdRandom.uniformDouble(5,95), 300));
         enemigos.add(new Enemigo(StdRandom.uniformDouble(5,95), 500));
         enemigos.add(new Enemigo(StdRandom.uniformDouble(5,95), 700));
     }
 
-    public void comprobarEnemigos(){
+    protected final void comprobarEnemigos(){
         if(enemigos.get(0).getFigura().getCentroide().getY() < 0)
             generarNuevoEnemigo();
     }
 
-    public void generarNuevoEnemigo(){
+    protected final void generarNuevoEnemigo(){
         enemigos.remove(0);
         enemigos.add(new Enemigo(StdRandom.uniformDouble(5,95), enemigos.get(enemigos.size()-1).getFigura().getCentroide().getY() + StdRandom.uniformDouble(100, 300)));
     }
 
-    public Enemigo get(int i){
+    protected final Enemigo get(int i){
         return enemigos.get(i);
     }
 
-    public int size(){
+    protected final int size(){
         return enemigos.size();
     }
 
-    public void add(int i, Enemigo enemigo){
+    protected final void add(int i, Enemigo enemigo){
         this.enemigos.add(i, enemigo);
     }
 
-    public void remove(int i) {
+    protected final void remove(int i) {
         this.enemigos.remove(i);
     }
 
-    public void pintar(){
+    protected final void pintar(){
         for(int i = 0; i < enemigos.size(); i++){
             enemigos.get(i).pintar();
         }
     }
     
-    public void mover(){
+    protected final void mover(){
         for(int i = 0; i < enemigos.size(); i++){
             if (enemigos.get(i).getFigura().getCentroide().getX()<0 || enemigos.get(i).getFigura().getCentroide().getX()>100 )
                 enemigos.get(i).setIncX(-enemigos.get(i).getIncX());

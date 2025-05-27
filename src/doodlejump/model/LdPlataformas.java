@@ -3,9 +3,9 @@ package src.doodlejump.model;
 import tads.*;
 import stdlib.StdRandom;
 
-public class LdPlataformas {
-    protected IList<Plataforma> plataformas = new ArrayList<>();
-    protected static int puntuacion = 0;
+final class LdPlataformas {
+    protected final IList<Plataforma> plataformas = new ArrayList<>();
+    private static int puntuacion = 0;
     
     protected static int getPuntuacion() {
         return puntuacion;
@@ -26,12 +26,12 @@ public class LdPlataformas {
         LdPlataformas.puntuacion = 0;
     }
 
-    protected void comprobarPlataformas(){
+    protected final void comprobarPlataformas(){
         if(plataformas.get(0).getFigura().getCentroide().getY()<0)
             generarNuevaPlataforma();
     }
 
-    protected void generarNuevaPlataforma(){
+    protected final void generarNuevaPlataforma(){
         plataformas.remove(0);
 
         int tipo = StdRandom.uniformInt(0, 4);
@@ -52,29 +52,29 @@ public class LdPlataformas {
         }
     }
     
-    protected Plataforma get(int i){
+    protected final Plataforma get(int i){
         return plataformas.get(i);
     }
     
-    protected int size(){
+    protected final int size(){
         return plataformas.size();
     }
 
-    protected void pintar() {
+    protected final void pintar() {
         for (int i = 0; i < plataformas.size(); i++) {
             plataformas.get(i).pintar();
         }
     }
 
-    protected void add(int i, Plataforma plataforma){
+    protected final void add(int i, Plataforma plataforma){
         this.plataformas.add(i, plataforma);
     }
 
-    protected void remove(int i) {
+    protected final void remove(int i) {
         this.plataformas.remove(i);
     }
 
-    protected void mover(){
+    protected final void mover(){
     for(int i = 0; plataformas.size() > i; i ++){
             if(plataformas.get(i) instanceof PlataformaMovil){
                 PlataformaMovil movil = (PlataformaMovil) plataformas.get(i); 
