@@ -30,17 +30,6 @@ public class LdPlataformas {
             generarNuevaPlataforma();
     }
 
-    public void comprobarPlataformasFragiles(){
-        PlataformaFragil actual = null;
-        for(int i = 0; i < plataformas.size(); i++){
-            if(plataformas.get(i) instanceof PlataformaFragil){
-                actual = (PlataformaFragil) plataformas.get(i);
-                if(actual.hayColision(this.personajeRef) && (this.personajeRef.getFigura().getCentroide().getY() >= actual.getFigura().getCentroide().getY()))
-                    this.plataformas.remove(i);
-            }
-        }
-    }
-
     public void generarNuevaPlataforma(){
         plataformas.remove(0);
 
@@ -74,6 +63,10 @@ public class LdPlataformas {
         for (int i = 0; i < plataformas.size(); i++) {
             plataformas.get(i).pintar();
         }
+    }
+
+    public void remove(int i) {
+        this.plataformas.remove(i);
     }
 
 }

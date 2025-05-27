@@ -27,6 +27,21 @@ public class JuegoPersonaje extends Juego2DBase {
         this.fondo = new Fondo();
     }
 
+    @Override
+    protected void moverObjetos(){
+        manejarMovimientoVertical();
+        manejarMovimientoHorizontal();
+        plataformas.comprobarPlataformas();
+        enemigos.comprobarEnemigos();
+        enemigos.mover();
+        for(int i = 0; plataformas.size() > i; i ++){
+            if(plataformas.get(i) instanceof PlataformaMovil){
+                PlataformaMovil movil = (PlataformaMovil) plataformas.get(i); 
+                movil.moverHorizontal(); 
+            }
+        }
+    }
+
     private void manejarMovimientoVertical(){
         if(velocidadY >= VELOCIDAD_MAXIMA)
             velocidadY -= GRAVEDAD;
@@ -43,8 +58,7 @@ public class JuegoPersonaje extends Juego2DBase {
 
             jugador.efectuarMovimiento(0, -velocidadY);
         }
-        if(this.hayColision()){   
-            plataformas.comprobarPlataformasFragiles();     
+        if(this.hayColision()){       
             velocidadY = FUERZA_SALTO;
         }
     }
@@ -56,7 +70,7 @@ public class JuegoPersonaje extends Juego2DBase {
             colision = plataformas.get(i).hayColision(jugador);
             
             if(colision && plataformas.get(i) instanceof PlataformaFragil){
-                plataformas.comprobarPlataformasFragiles();
+                this.plataformas.remove(i);
             }
         }
         return colision;
@@ -75,20 +89,20 @@ public class JuegoPersonaje extends Juego2DBase {
         jugador.efectuarMovimiento(velocidadX, 0);
     }
 
-    @Override
-    protected void finalizarJuego() {
+    public void finalizarJuego(){
         StdDraw.text(50, 50, "¡Juego Terminado!");
-        StdDraw.text(50, 45, "Puntuacion: " + LdPlataformas.puntuacion);
+        StdDraw.text(50, 45, "Puntuación: " + LdPlataformas.getPuntuacion());
+        StdDraw.text(50, 40, "Pulsa 'R' para reiniciar");
         StdDraw.show();
     }
 
     @Override
-    protected boolean comprobarCondicionesSeguirJugando() {
+    protected boolean comprobarCondicionesSeguirJugando(){
         return jugador.getFigura().getCentroide().getY() < 0 || hayColisionEnemigo();
     }
 
     @Override
-    protected void pintarObjetos() {
+    protected void pintarObjetos(){
         fondo.pintar();
         jugador.pintar();
         plataformas.pintar();
@@ -96,7 +110,7 @@ public class JuegoPersonaje extends Juego2DBase {
     }
 
     @Override
-    protected void comprobarColisiones() {
+    protected void comprobarColisiones(){
         Punto centro = jugador.getFigura().getCentroide();
         if (centro.getX() < 0)
             jugador.efectuarMovimiento(99, 0);
@@ -104,19 +118,5 @@ public class JuegoPersonaje extends Juego2DBase {
             jugador.efectuarMovimiento(-99, 0);
     }
 
-    @Override
-    protected void moverObjetos() {
-        manejarMovimientoVertical();
-        manejarMovimientoHorizontal();
-        plataformas.comprobarPlataformas();
-        enemigos.comprobarEnemigos();
-        enemigos.mover();
-        for(int i = 0; plataformas.size() > i; i ++){
-            if(plataformas.get(i) instanceof PlataformaMovil){
-                PlataformaMovil movil = (PlataformaMovil) plataformas.get(i); 
-                movil.moverHorizontal(); 
-            }
-        }
-    }
+    
 }
-
