@@ -25,6 +25,7 @@ public class LdPlataformas {
                 plataformas.add(new Plataforma(StdRandom.uniformDouble(55,95), (i+3)*20, personajeRef, 0, 0));
             }
         }
+        LdPlataformas.puntuacion = 0;
     }
 
     public void comprobarPlataformas(){
