@@ -6,31 +6,34 @@ import model.ObjetoGraficoMovil;
 import model.base.IFigura;
 import model.base.Poligono;
 import model.base.Punto;
+import stdlib.StdRandom;
+
 public class Enemigo extends ObjetoGraficoMovil{
-    public static final double ANCHO = 8;
-    public static final double ALTO = 8;
+    public static final double Lado = 8;
     public static final String PERSONAJE_IMAGE = "./enemigo.png";
-    protected double velocidad = 1;
     public Personaje personajeRef = null;
 
     public Enemigo(double x, double y, Personaje personajeRef) {
-        super(crearFigura(x, y), 1, 1, 0);
+        super(crearFigura(x, y), 1, StdRandom.uniformDouble(0,2), 0);
         this.personajeRef = personajeRef;
         setImage(PERSONAJE_IMAGE);
     }
     private static IFigura crearFigura(double x, double y) {
         return new Poligono(java.awt.Color.RED, new Punto(x, y),
             Arrays.asList(
-                new Punto(x - ANCHO/2, y - ALTO/2),
-                new Punto(x + ANCHO/2, y - ALTO/2),
-                new Punto(x + ANCHO/2, y + ALTO/2),
-                new Punto(x - ANCHO/2, y + ALTO/2)
+                new Punto(x - Lado/2, y - Lado/2),
+                new Punto(x + Lado/2, y - Lado/2),
+                new Punto(x + Lado/2, y + Lado/2),
+                new Punto(x - Lado/2, y + Lado/2)
             ));
     }
+
     public void mover(){
         if (getFigura().getCentroide().getX()<0 || getFigura().getCentroide().getX()>100 )
             setIncX(-getIncX());
         this.avanzar();
     }
+
     public void recibirImpacto(ObjetoGrafico f){}
+
 }

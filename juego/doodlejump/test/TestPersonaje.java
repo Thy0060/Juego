@@ -8,5 +8,3 @@ public class TestPersonaje {
         juego.jugar();
     }
 }
-
-

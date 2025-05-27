@@ -23,7 +23,7 @@ public class LdEnemigos {
 
     public void generarNuevoEnemigo(){
         enemigos.remove(0);
-        enemigos.add(new Enemigo(StdRandom.uniformDouble(5,95), enemigos.get(enemigos.size()-1).getFigura().getCentroide().getY() + StdRandom.uniformDouble(50, 300), personajeRef));
+        enemigos.add(new Enemigo(StdRandom.uniformDouble(5,95), enemigos.get(enemigos.size()-1).getFigura().getCentroide().getY() + StdRandom.uniformDouble(100, 300), personajeRef));
     }
 
     public Enemigo get(int i){
