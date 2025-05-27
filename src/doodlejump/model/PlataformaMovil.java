@@ -5,8 +5,8 @@ import stdlib.StdRandom;
 
 public class PlataformaMovil extends Plataforma{
 
-    public PlataformaMovil(double x, double y, Personaje personajeRef) {
-        super(x, y, personajeRef, StdRandom.uniformDouble(1,3), 0);
+    public PlataformaMovil(double x, double y, Personaje personajeRef, String imagenPlataforma) {
+        super(x, y, personajeRef, StdRandom.uniformDouble(1,3), 0, imagenPlataforma);
         this.getFigura().setColor(StdDraw.BLUE);
     }
 
