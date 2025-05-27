@@ -42,7 +42,7 @@ public class LdPlataformas {
         if(tipo == 2){
             plataformas.add(new PlataformaMovil(StdRandom.uniformDouble(5,95), plataformas.get(plataformas.size()-1).getFigura().getCentroide().getY() + StdRandom.uniformDouble(10, 15), personajeRef));
             plataformas.add(new Plataforma(StdRandom.uniformDouble(5,95), plataformas.get(plataformas.size()-1).getFigura().getCentroide().getY() + StdRandom.uniformDouble(10, 15), personajeRef, 0,0 ));
-            LdPlataformas.puntuacion += 15;
+            LdPlataformas.puntuacion += 10;
         }
         else{
             plataformas.add(new PlataformaFragil(StdRandom.uniformDouble(5,95), plataformas.get(plataformas.size()-1).getFigura().getCentroide().getY() + StdRandom.uniformDouble(10, 15), personajeRef));
@@ -63,6 +63,10 @@ public class LdPlataformas {
         for (int i = 0; i < plataformas.size(); i++) {
             plataformas.get(i).pintar();
         }
+    }
+
+    public void add(int i, Plataforma plataforma){
+        this.plataformas.add(i, plataforma);
     }
 
     public void remove(int i) {

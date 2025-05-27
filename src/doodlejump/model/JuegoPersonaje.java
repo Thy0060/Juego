@@ -28,6 +28,15 @@ public class JuegoPersonaje extends Juego2DBase {
     }
 
     @Override
+    protected void comprobarColisiones(){
+        Punto centro = jugador.getFigura().getCentroide();
+        if (centro.getX() < 0)
+            jugador.efectuarMovimiento(99, 0);
+        if(centro.getX() > 100)
+            jugador.efectuarMovimiento(-99, 0);
+    }
+
+    @Override
     protected void moverObjetos(){
         manejarMovimientoVertical();
         manejarMovimientoHorizontal();
@@ -40,6 +49,19 @@ public class JuegoPersonaje extends Juego2DBase {
                 movil.moverHorizontal(); 
             }
         }
+    }
+
+    private boolean hayColision(){
+        boolean colision = false;
+
+        for(int i = 0; i < 5 && !colision && jugador.getFigura().getCentroide().getY() >= plataformas.get(i).getFigura().getCentroide().getY() && velocidadY < 0.5; i++){
+            colision = plataformas.get(i).hayColision(jugador);
+            
+            if(colision && plataformas.get(i) instanceof PlataformaFragil){
+                this.plataformas.remove(i);
+            }
+        }
+        return colision;
     }
 
     private void manejarMovimientoVertical(){
@@ -63,42 +85,13 @@ public class JuegoPersonaje extends Juego2DBase {
         }
     }
 
-    private boolean hayColision(){
-        boolean colision = false;
-
-        for(int i = 0; i < 5 && !colision && jugador.getFigura().getCentroide().getY() >= plataformas.get(i).getFigura().getCentroide().getY() && velocidadY < 0.5; i++){
-            colision = plataformas.get(i).hayColision(jugador);
-            
-            if(colision && plataformas.get(i) instanceof PlataformaFragil){
-                this.plataformas.remove(i);
-            }
-        }
-        return colision;
-    }
-
-    private boolean hayColisionEnemigo(){
-        return enemigos.get(0).hayColision(jugador);
-    }
-
-    private void manejarMovimientoHorizontal(){
+        private void manejarMovimientoHorizontal(){
         velocidadX = 0;
         if (StdDraw.isKeyPressed(FLECHA_IZQUIERDA)) 
             velocidadX = -2;
         if (StdDraw.isKeyPressed(FLECHA_DERECHA)) 
             velocidadX = 2; 
         jugador.efectuarMovimiento(velocidadX, 0);
-    }
-
-    public void finalizarJuego(){
-        StdDraw.text(50, 50, "¡Juego Terminado!");
-        StdDraw.text(50, 45, "Puntuación: " + LdPlataformas.getPuntuacion());
-        StdDraw.text(50, 40, "Pulsa 'R' para reiniciar");
-        StdDraw.show();
-    }
-
-    @Override
-    protected boolean comprobarCondicionesSeguirJugando(){
-        return jugador.getFigura().getCentroide().getY() < 0 || hayColisionEnemigo();
     }
 
     @Override
@@ -110,13 +103,15 @@ public class JuegoPersonaje extends Juego2DBase {
     }
 
     @Override
-    protected void comprobarColisiones(){
-        Punto centro = jugador.getFigura().getCentroide();
-        if (centro.getX() < 0)
-            jugador.efectuarMovimiento(99, 0);
-        if(centro.getX() > 100)
-            jugador.efectuarMovimiento(-99, 0);
+    protected boolean comprobarCondicionesSeguirJugando(){
+        return jugador.getFigura().getCentroide().getY() < 0 || enemigos.get(0).hayColision(jugador);
     }
 
+    public void finalizarJuego(){
+        StdDraw.text(50, 50, "¡Juego Terminado!");
+        StdDraw.text(50, 45, "Puntuación: " + LdPlataformas.getPuntuacion());
+        StdDraw.text(50, 40, "Pulsa 'R' para reiniciar");
+        StdDraw.show();
+    }
     
 }
