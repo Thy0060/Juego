@@ -9,7 +9,7 @@ import src.soporte.base.Punto;
 import stdlib.StdRandom;
 
 public class Enemigo extends ObjetoGraficoMovil{
-    public static final double Lado = 6;
+    public static final double Lado = 15;
     public static final String enemigoFoto = "./enemigo.png";
     public Personaje personajeRef = null;
 
