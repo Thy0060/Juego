@@ -4,10 +4,12 @@ import stdlib.StdDraw;
 import stdlib.StdRandom;
 
 public class PlataformaMovil extends Plataforma{
+public static final String plataformaMovil = "./plataformaMovil.png";
 
-    public PlataformaMovil(double x, double y, Personaje personajeRef, String imagenPlataforma) {
-        super(x, y, personajeRef, StdRandom.uniformDouble(1,3), 0, imagenPlataforma);
+    public PlataformaMovil(double x, double y, Personaje personajeRef) {
+        super(x, y, personajeRef, StdRandom.uniformDouble(1,3), 0);
         this.getFigura().setColor(StdDraw.BLUE);
+        this.setImage(plataformaMovil);
     }
 
     public void moverHorizontal(){

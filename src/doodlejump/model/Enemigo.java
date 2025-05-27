@@ -12,11 +12,13 @@ import src.soporte.base.Punto;
 public class Enemigo extends ObjetoGraficoMovil{
     public static final double Lado = 12;
     public Personaje personajeRef;
+    protected String[] fotosEnemigos = {"./enemigo1.png", "./enemigo2.png", "./enemigo3.png"};
 
-    public Enemigo(double x, double y, Personaje personajeRef, String fotoEnemigo) {
+    public Enemigo(double x, double y, Personaje personajeRef) {
         super(crearFigura(x, y), 1, StdRandom.uniformDouble(0,2), 0);
         this.personajeRef = personajeRef;
-        setImage(fotoEnemigo);
+
+        this.setImage(fotosEnemigos[StdRandom.uniformInt(0,3)]);
     }
 
     private static IFigura crearFigura(double x, double y) {

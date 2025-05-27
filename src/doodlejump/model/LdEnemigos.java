@@ -6,12 +6,11 @@ import stdlib.StdRandom;
 public class LdEnemigos {
     protected IList<Enemigo> enemigos = new ArrayList<>();
     private Personaje personajeRef;
-    protected String[] fotosEnemigos = {"./enemigo1.png", "./enemigo2.png", "./enemigo3.png"};
 
     public LdEnemigos(Personaje personajeRef){
-        enemigos.add(new Enemigo(StdRandom.uniformDouble(5,95), 300, personajeRef, fotosEnemigos[StdRandom.uniformInt(0,3)]));
-        enemigos.add(new Enemigo(StdRandom.uniformDouble(5,95), 500, personajeRef, fotosEnemigos[StdRandom.uniformInt(0,3)]));
-        enemigos.add(new Enemigo(StdRandom.uniformDouble(5,95), 700, personajeRef, fotosEnemigos[StdRandom.uniformInt(0,3)]));
+        enemigos.add(new Enemigo(StdRandom.uniformDouble(5,95), 300, personajeRef));
+        enemigos.add(new Enemigo(StdRandom.uniformDouble(5,95), 500, personajeRef));
+        enemigos.add(new Enemigo(StdRandom.uniformDouble(5,95), 700, personajeRef));
     }
 
     public void comprobarEnemigos(){
@@ -21,7 +20,7 @@ public class LdEnemigos {
 
     public void generarNuevoEnemigo(){
         enemigos.remove(0);
-        enemigos.add(new Enemigo(StdRandom.uniformDouble(5,95), enemigos.get(enemigos.size()-1).getFigura().getCentroide().getY() + StdRandom.uniformDouble(100, 300), personajeRef, fotosEnemigos[StdRandom.uniformInt(0,2)]));
+        enemigos.add(new Enemigo(StdRandom.uniformDouble(5,95), enemigos.get(enemigos.size()-1).getFigura().getCentroide().getY() + StdRandom.uniformDouble(100, 300), personajeRef));
     }
 
     public Enemigo get(int i){

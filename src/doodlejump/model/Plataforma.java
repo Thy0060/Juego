@@ -13,12 +13,12 @@ public class Plataforma extends ObjetoGraficoMovil {
     public static final double ALTO = 3;
     public Personaje personajeRef = null;
     protected boolean colision = false;
-    public String imagenPlataforma;
+    public static final String plataforma = "./plataforma.png";
 
-    public Plataforma(double x, double y, Personaje personajeRef, double incX, double incY, String imagenPlataforma){
+    public Plataforma(double x, double y, Personaje personajeRef, double incX, double incY){
         super(crearFigura(x, y), 1, incX, incY);
         this.personajeRef = personajeRef;
-        setImage(imagenPlataforma);
+        setImage(plataforma);
     }
 
     private static IFigura crearFigura(double x, double y){
