@@ -6,7 +6,7 @@ import src.doodlejump.model.JuegoDoodle;
 
 
 public class TestPersonaje {
- public static void main(String[] args) {
+public static void main(String[] args) {
         while(true){
             JuegoDoodle juego = new JuegoDoodle();
             juego.jugar(); 
