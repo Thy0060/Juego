@@ -6,7 +6,7 @@ import src.soporte.ObjetoGrafico;
 import src.soporte.base.Poligono;
 import src.soporte.base.Punto;
 
-public final class Fondo extends ObjetoGrafico {
+final class Fondo extends ObjetoGrafico {
     private static final String fondo = "./fondo.png";
 
     protected Fondo(){

@@ -7,7 +7,7 @@ import src.soporte.ObjetoGraficoDeUsuario;
 import src.soporte.base.Poligono;
 import src.soporte.base.Punto;
 
-public class Personaje extends ObjetoGraficoDeUsuario {
+final class Personaje extends ObjetoGraficoDeUsuario {
     private static final double lado = 6;
     private static final double posicionInicial = 50;
     
@@ -28,8 +28,8 @@ public class Personaje extends ObjetoGraficoDeUsuario {
                 new Punto(posicionInicial + lado, posicionInicial + lado/3),
                 new Punto(posicionInicial + lado, posicionInicial - lado/5),
                 new Punto(posicionInicial + lado/4, posicionInicial - lado/5),
-                new Punto(posicionInicial + lado/4, posicionInicial - lado)
-            )), flechaArriba, flechaAbajo, flechaDerecha, flechaIzquierda);
+                new Punto(posicionInicial + lado/4, posicionInicial - lado))), 
+            flechaArriba, flechaAbajo, flechaDerecha, flechaIzquierda);
 
         setImage(PERSONAJE_IMAGE);
     }

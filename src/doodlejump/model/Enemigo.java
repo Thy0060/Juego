@@ -8,9 +8,9 @@ import src.soporte.ObjetoGraficoMovil;
 import src.soporte.base.Poligono;
 import src.soporte.base.Punto;
 
-public class Enemigo extends ObjetoGraficoMovil{
+final class Enemigo extends ObjetoGraficoMovil{
     private static final double lado = 12;
-    private String[] fotosEnemigos = {"./enemigo1.png", "./enemigo2.png", "./enemigo3.png"};
+    private static final String[] fotosEnemigos = {"./enemigo1.png", "./enemigo2.png", "./enemigo3.png"};
 
     protected Enemigo(double x, double y) {
         super(new Poligono(java.awt.Color.RED, new Punto(x, y),
@@ -18,12 +18,12 @@ public class Enemigo extends ObjetoGraficoMovil{
                 new Punto(x - lado/2, y - (lado-4)/2),
                 new Punto(x + lado/2, y - (lado-4)/2),
                 new Punto(x + lado/2, y + (lado-4)/2),
-                new Punto(x - lado/2, y + (lado-4)/2)
-            )), 1, StdRandom.uniformDouble(0,2), 0);
+                new Punto(x - lado/2, y + (lado-4)/2))), 
+            1, StdRandom.uniformDouble(0,2), 0);
         this.setImage(fotosEnemigos[StdRandom.uniformInt(0,3)]);
     }
 
-    protected void mover(){
+    protected final void mover(){
         if (getFigura().getCentroide().getX()<0 || getFigura().getCentroide().getX()>100)
             setIncX(-getIncX());
         this.avanzar();

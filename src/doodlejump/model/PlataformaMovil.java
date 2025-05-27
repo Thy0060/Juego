@@ -3,7 +3,7 @@ package src.doodlejump.model;
 import stdlib.StdDraw;
 import stdlib.StdRandom;
 
-public class PlataformaMovil extends Plataforma{
+final class PlataformaMovil extends Plataforma{
 private static final String plataformaMovil = "./plataformaMovil.png";
 
     protected PlataformaMovil(double x, double y) {
@@ -12,7 +12,7 @@ private static final String plataformaMovil = "./plataformaMovil.png";
         this.setImage(plataformaMovil);
     }
 
-    protected void mover(){
+    protected final void mover(){
         if(this.getFigura().getCentroide().getX() < 0)
             this.colocar(99, 0);
         
