@@ -13,8 +13,6 @@ public class Personaje extends ObjetoGraficoDeUsuario {
 
     public static final double PERSONAJE_X = 50;
     public static final double PERSONAJE_Y = 50;
-
-    private double velocidadY = 0;
     
     public static final int FLECHA_ARRIBA = 38;
     public static final int FLECHA_ABAJO = 40;
@@ -36,13 +34,7 @@ public class Personaje extends ObjetoGraficoDeUsuario {
     public void efectuarMovimiento(double vX, double vY){
         this.colocar(vX,vY);
     }
-    public void aplicarImpulsoVertical(double fuerza) {
-        velocidadY = fuerza;
-    }
     
-    public double getVelocidadY() {
-        return velocidadY;
-    }
     public void recibirImpacto(ObjetoGrafico otrafigura){
     }
 }
