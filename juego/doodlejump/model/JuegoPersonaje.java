@@ -5,14 +5,14 @@ import juego.Juego2DBase;
 import model.base.Punto;
 public class JuegoPersonaje extends Juego2DBase {
     protected Personaje jugador;
-    protected LdPlataformas plataformas = null;
-    protected LdEnemigos enemigos = null;
+    protected LdPlataformas plataformas;
+    protected LdEnemigos enemigos;
     private double velocidadY = 0;
     private double velocidadX = 0;
 
     private static final double GRAVEDAD = 0.2;
-    private static final double FUERZA_SALTO = 3.5;
-    private static final double VELOCIDAD_MAXIMA = -4;
+    private static final double FUERZA_SALTO = 4;
+    private static final double VELOCIDAD_MAXIMA = -3;
 
     public static final int FLECHA_ARRIBA = 38;
     public static final int FLECHA_ABAJO = 40;
