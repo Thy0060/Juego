@@ -26,7 +26,7 @@ public class JuegoPersonaje extends Juego2DBase {
     }
 
     private void manejarMovimientoVertical(){
-        if(velocidadY > VELOCIDAD_MAXIMA)
+        if(velocidadY >= VELOCIDAD_MAXIMA)
             velocidadY -= GRAVEDAD;
 
         jugador.efectuarMovimiento(0,velocidadY);
