@@ -1,6 +1,8 @@
 package src.doodlejump.model;
+
 import tads.*;
 import stdlib.StdRandom;
+
 public class LdPlataformas {
     protected IList<Plataforma> plataformas = new ArrayList<>();
     private Personaje personajeRef;

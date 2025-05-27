@@ -6,6 +6,7 @@ import src.soporte.ObjetoGrafico;
 import src.soporte.ObjetoGraficoDeUsuario;
 import src.soporte.base.Poligono;
 import src.soporte.base.Punto;
+
 public class Personaje extends ObjetoGraficoDeUsuario {
     public static final String PERSONAJE_IMAGE = "./doodle.png";
 

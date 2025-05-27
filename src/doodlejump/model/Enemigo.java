@@ -1,12 +1,13 @@
 package src.doodlejump.model;
+
 import java.util.Arrays;
+import stdlib.StdRandom;
 
 import src.soporte.ObjetoGrafico;
 import src.soporte.ObjetoGraficoMovil;
 import src.soporte.base.IFigura;
 import src.soporte.base.Poligono;
 import src.soporte.base.Punto;
-import stdlib.StdRandom;
 
 public class Enemigo extends ObjetoGraficoMovil{
     public static final double Lado = 12;

@@ -1,4 +1,5 @@
 package src.doodlejump.model;
+
 import java.util.Arrays;
 
 import src.soporte.ObjetoGrafico;

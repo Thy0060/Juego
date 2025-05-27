@@ -2,6 +2,7 @@ package src.doodlejump.model;
 
 import tads.*;
 import stdlib.StdRandom;
+
 public class LdEnemigos {
     protected IList<Enemigo> enemigos = new ArrayList<>();
     private Personaje personajeRef;
@@ -14,11 +15,8 @@ public class LdEnemigos {
     }
 
     public void comprobarEnemigos(){
-        for(int i = 0; i < enemigos.size(); i++){
-            if(enemigos.get(i).getFigura().getCentroide().getY() < 0){
-                generarNuevoEnemigo();
-            }
-        }
+        if(enemigos.get(0).getFigura().getCentroide().getY() < 0)
+            generarNuevoEnemigo();
     }
 
     public void generarNuevoEnemigo(){
@@ -32,6 +30,14 @@ public class LdEnemigos {
 
     public int size(){
         return enemigos.size();
+    }
+
+    public void add(int i, Enemigo enemigo){
+        this.enemigos.add(i, enemigo);
+    }
+
+    public void remove(int i) {
+        this.enemigos.remove(i);
     }
 
     public void pintar(){

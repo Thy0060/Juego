@@ -1,8 +1,10 @@
 package src.doodlejump.model;
 
+import stdlib.StdDraw;
+
 import src.soporte.Juego2DBase;
 import src.soporte.base.Punto;
-import stdlib.StdDraw;
+
 public class JuegoPersonaje extends Juego2DBase {
     protected Personaje jugador;
     protected LdPlataformas plataformas;
