@@ -19,6 +19,7 @@ public class Enemigo extends ObjetoGraficoMovil{
         this.personajeRef = personajeRef;
         setImage(enemigoFoto);
     }
+
     private static IFigura crearFigura(double x, double y) {
         return new Poligono(java.awt.Color.RED, new Punto(x, y),
             Arrays.asList(

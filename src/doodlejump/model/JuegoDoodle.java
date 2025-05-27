@@ -5,7 +5,7 @@ import stdlib.StdDraw;
 import src.soporte.Juego2DBase;
 import src.soporte.base.Punto;
 
-public class JuegoPersonaje extends Juego2DBase {
+public class JuegoDoodle extends Juego2DBase {
     protected Personaje jugador;
     protected LdPlataformas plataformas;
     protected LdEnemigos enemigos;
@@ -22,7 +22,7 @@ public class JuegoPersonaje extends Juego2DBase {
     public static final int FLECHA_DERECHA = 39;
     public static final int FLECHA_IZQUIERDA = 37;
 
-    public JuegoPersonaje() {
+    public JuegoDoodle() {
         this.jugador = new Personaje();
         this.plataformas = new LdPlataformas(jugador);
         this.enemigos = new LdEnemigos(jugador);

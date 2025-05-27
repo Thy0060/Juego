@@ -1,12 +1,14 @@
 package src.doodlejump.test;
 
-import src.doodlejump.model.JuegoPersonaje;
 import stdlib.StdDraw;
+
+import src.doodlejump.model.JuegoDoodle;
+
 
 public class TestPersonaje {
  public static void main(String[] args) {
         while(true){
-            JuegoPersonaje juego = new JuegoPersonaje();
+            JuegoDoodle juego = new JuegoDoodle();
             juego.jugar(); 
 
             juego.finalizarJuego();
