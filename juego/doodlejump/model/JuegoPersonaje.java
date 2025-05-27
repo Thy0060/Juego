@@ -34,25 +34,23 @@ public class JuegoPersonaje extends Juego2DBase {
         if(jugador.getFigura().getCentroide().getY() > 50 && velocidadY > 0){
             plataformas.comprobarPlataformas();
             enemigos.comprobarEnemigos();
-            for(int i = 0; i < plataformas.size(); i++){
+            for(int i = 0; i < plataformas.size(); i++)
                 plataformas.get(i).mover(0, -velocidadY);
+            for(int i = 0; i < enemigos.size(); i++)
                 enemigos.get(i).colocar(0,-velocidadY);
-            }
+
             jugador.efectuarMovimiento(0, -velocidadY);
         }
-        if (hayColision()) {   
+        if (hayColision()){   
+            plataformas.comprobarPlataformasFragiles();     
             velocidadY = FUERZA_SALTO;
         }
-
     }
+
     private boolean hayColision(){
         boolean colision = false;
 
-        for(int i = 0; 
-        i < plataformas.size() 
-        && !colision
-        && jugador.getFigura().getCentroide().getY() >= plataformas.get(i).getFigura().getCentroide().getY()
-        && velocidadY<0; i++){
+        for(int i = 0; i < 5 && !colision && jugador.getFigura().getCentroide().getY() >= plataformas.get(i).getFigura().getCentroide().getY() && velocidadY < 0; i++){
             colision = plataformas.get(i).hayColision(jugador);
             if(colision && plataformas.get(i) instanceof PlataformaFalsa){
                 PlataformaFalsa pf = (PlataformaFalsa) plataformas.get(i);
@@ -61,6 +59,7 @@ public class JuegoPersonaje extends Juego2DBase {
         }
         return colision;
     }
+
     private boolean hayColisionEnemigo(){
         return enemigos.get(0).hayColision(jugador);
     }
@@ -73,21 +72,11 @@ public class JuegoPersonaje extends Juego2DBase {
             velocidadX = 3; 
         jugador.efectuarMovimiento(velocidadX, 0);
     }
-    
-    private void comprobarPlataformasFalsas(){
-        PlataformaFalsa actual = null;
-        for(int i = 0; i < plataformas.size(); i++){
-            if(plataformas.get(i) instanceof PlataformaFalsa){
-                actual = (PlataformaFalsa) plataformas.get(i);
-                if(actual.hayColision(this.jugador))
-                    actual.desactivar();
-            }
-        }
-    }
+
     @Override
     protected void finalizarJuego() {
         StdDraw.text(50, 50, "¡Juego Terminado!");
-        StdDraw.text(50, 40, "Puntuacion: " + LdPlataformas.puntuacion);
+        StdDraw.text(50, 45, "Puntuacion: " + LdPlataformas.puntuacion);
         StdDraw.show();
     }
 
@@ -111,6 +100,7 @@ public class JuegoPersonaje extends Juego2DBase {
         if(centro.getX() > 100)
             jugador.efectuarMovimiento(-99, 0);
     }
+
     @Override
     protected void moverObjetos() {
         manejarMovimientoVertical();
@@ -118,7 +108,6 @@ public class JuegoPersonaje extends Juego2DBase {
         plataformas.comprobarPlataformas();
         enemigos.comprobarEnemigos();
         enemigos.mover();
-        comprobarPlataformasFalsas();
         for(int i = 0; plataformas.size() > i; i ++){
             if(plataformas.get(i) instanceof PlataformaMovil){
                 PlataformaMovil movil = (PlataformaMovil) plataformas.get(i); 
