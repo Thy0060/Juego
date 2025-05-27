@@ -4,7 +4,6 @@ import stdlib.StdDraw;
 
 import src.doodlejump.model.JuegoDoodle;
 
-
 public class TestPersonaje {
 public static void main(String[] args) {
         while(true){
