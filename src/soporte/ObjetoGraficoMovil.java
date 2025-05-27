@@ -1,6 +1,6 @@
-package src.model;
+package src.soporte;
 
-import src.model.base.IFigura;
+import src.soporte.base.IFigura;
 
 public abstract class ObjetoGraficoMovil extends ObjetoGrafico {
     private double incX;

@@ -1,4 +1,4 @@
-package src.model.base;
+package src.soporte.base;
 
 public class Punto {
     private double x, y;

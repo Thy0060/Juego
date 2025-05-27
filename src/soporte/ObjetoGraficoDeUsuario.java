@@ -1,6 +1,6 @@
-package src.model;
+package src.soporte;
 
-import src.model.base.IFigura;
+import src.soporte.base.IFigura;
 import stdlib.StdDraw;
 
 public abstract class ObjetoGraficoDeUsuario extends ObjetoGrafico {

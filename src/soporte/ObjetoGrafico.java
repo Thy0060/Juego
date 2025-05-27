@@ -1,7 +1,7 @@
-package src.model;
+package src.soporte;
 
-import src.model.base.Figura;
-import src.model.base.IFigura;
+import src.soporte.base.Figura;
+import src.soporte.base.IFigura;
 import stdlib.StdDraw;
 import tads.IList;
 import tads.LinkedList;

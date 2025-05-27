@@ -2,10 +2,10 @@ package src.doodlejump.model;
 
 import java.util.Arrays;
 
-import src.model.ObjetoGrafico;
-import src.model.ObjetoGraficoDeUsuario;
-import src.model.base.Poligono;
-import src.model.base.Punto;
+import src.soporte.ObjetoGrafico;
+import src.soporte.ObjetoGraficoDeUsuario;
+import src.soporte.base.Poligono;
+import src.soporte.base.Punto;
 public class Personaje extends ObjetoGraficoDeUsuario {
     public static final String PERSONAJE_IMAGE = "./doodle.png";
 

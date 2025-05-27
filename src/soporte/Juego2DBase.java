@@ -1,4 +1,4 @@
-package src.model;
+package src.soporte;
 
 import java.awt.Color;
 import stdlib.StdDraw;

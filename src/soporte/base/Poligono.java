@@ -1,4 +1,4 @@
-package src.model.base;
+package src.soporte.base;
 
 import java.awt.Color;
 import java.util.List;

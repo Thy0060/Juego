@@ -1,11 +1,11 @@
 package src.doodlejump.model;
 import java.util.Arrays;
 
-import src.model.ObjetoGrafico;
-import src.model.ObjetoGraficoMovil;
-import src.model.base.IFigura;
-import src.model.base.Poligono;
-import src.model.base.Punto;
+import src.soporte.ObjetoGrafico;
+import src.soporte.ObjetoGraficoMovil;
+import src.soporte.base.IFigura;
+import src.soporte.base.Poligono;
+import src.soporte.base.Punto;
 
 public class Plataforma extends ObjetoGraficoMovil {
     public static final double ANCHO = 12;
