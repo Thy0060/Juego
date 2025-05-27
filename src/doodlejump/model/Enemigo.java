@@ -9,7 +9,7 @@ import src.soporte.base.Punto;
 import stdlib.StdRandom;
 
 public class Enemigo extends ObjetoGraficoMovil{
-    public static final double Lado = 15;
+    public static final double Lado = 12;
     public static final String enemigoFoto = "./enemigo.png";
     public Personaje personajeRef = null;
 
@@ -21,10 +21,10 @@ public class Enemigo extends ObjetoGraficoMovil{
     private static IFigura crearFigura(double x, double y) {
         return new Poligono(java.awt.Color.RED, new Punto(x, y),
             Arrays.asList(
-                new Punto(x - Lado/2, y - Lado/2),
-                new Punto(x + Lado/2, y - Lado/2),
-                new Punto(x + Lado/2, y + Lado/2),
-                new Punto(x - Lado/2, y + Lado/2)
+                new Punto(x - Lado/2, y - (Lado-4)/2),
+                new Punto(x + Lado/2, y - (Lado-4)/2),
+                new Punto(x + Lado/2, y + (Lado-4)/2),
+                new Punto(x - Lado/2, y + (Lado-4)/2)
             ));
     }
 
