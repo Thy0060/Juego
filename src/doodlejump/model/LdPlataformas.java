@@ -6,6 +6,10 @@ public class LdPlataformas {
     private Personaje personajeRef;
     protected static int puntuacion = 0;
 
+    public static int getPuntuacion() {
+        return puntuacion;
+    }
+
     public LdPlataformas(Personaje personajeRef){
         this.personajeRef = personajeRef;
         for(int i = 0; i <= 4; i++){

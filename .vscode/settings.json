@@ -3,5 +3,6 @@
         "lib/**/*.jar",
         "juego/tads-20230510.jar",
         "juego/stdlib.jar"
-    ]
+    ],
+    "java.debug.settings.onBuildFailureProceed": true
 }
