@@ -17,7 +17,6 @@ public class Enemigo extends ObjetoGraficoMovil{
     public Enemigo(double x, double y, Personaje personajeRef) {
         super(crearFigura(x, y), 1, StdRandom.uniformDouble(0,2), 0);
         this.personajeRef = personajeRef;
-
         this.setImage(fotosEnemigos[StdRandom.uniformInt(0,3)]);
     }
 
