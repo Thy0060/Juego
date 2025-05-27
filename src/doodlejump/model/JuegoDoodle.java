@@ -73,8 +73,6 @@ public class JuegoDoodle extends Juego2DBase {
         jugador.efectuarMovimiento(0,velocidadY);
 
         if(jugador.getFigura().getCentroide().getY() > 50 && velocidadY > 0){
-            plataformas.comprobarPlataformas();
-            enemigos.comprobarEnemigos();
             for(int i = 0; i < plataformas.size(); i++)
                 plataformas.get(i).colocar(0, -velocidadY);
             for(int i = 0; i < enemigos.size(); i++)
