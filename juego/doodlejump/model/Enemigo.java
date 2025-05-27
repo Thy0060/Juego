@@ -10,13 +10,13 @@ import stdlib.StdRandom;
 
 public class Enemigo extends ObjetoGraficoMovil{
     public static final double Lado = 8;
-    public static final String PERSONAJE_IMAGE = "./enemigo.png";
+    public static final String enemigoFoto = "./enemigo.png";
     public Personaje personajeRef = null;
 
     public Enemigo(double x, double y, Personaje personajeRef) {
         super(crearFigura(x, y), 1, StdRandom.uniformDouble(0,2), 0);
         this.personajeRef = personajeRef;
-        setImage(PERSONAJE_IMAGE);
+        setImage(enemigoFoto);
     }
     private static IFigura crearFigura(double x, double y) {
         return new Poligono(java.awt.Color.RED, new Punto(x, y),

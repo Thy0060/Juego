@@ -11,7 +11,6 @@ public class Plataforma extends ObjetoGraficoMovil {
     public static final double ANCHO = 12;
     public static final double ALTO = 3;
     public Personaje personajeRef = null;
-    protected boolean activa = true;
     protected boolean colision = false;
 
     public Plataforma(double x, double y, Personaje personajeRef, double incX, double incY){
@@ -29,15 +28,10 @@ public class Plataforma extends ObjetoGraficoMovil {
             ));
     }
 
-    public boolean estaActiva() {
-        return activa;
-    }
     public void mover(double incX, double incY){
         this.colocar(incX, incY);
     }
+    
     public void recibirImpacto(ObjetoGrafico f){}
 
-    public boolean noHay() {
-    return false;
-}
 }

@@ -13,7 +13,7 @@ public class PlataformaMovil extends Plataforma{
     protected boolean colision = false;
 
     public PlataformaMovil(double x, double y, Personaje personajeRef) {
-        super(x, y, personajeRef, StdRandom.uniformDouble(1,2.5), 0);
+        super(x, y, personajeRef, StdRandom.uniformDouble(1,3), 0);
         this.getFigura().setColor(StdDraw.BLUE);
     }
 

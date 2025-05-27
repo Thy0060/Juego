@@ -9,8 +9,9 @@ public class JuegoPersonaje extends Juego2DBase {
     protected LdEnemigos enemigos = null;
     private double velocidadY = 0;
     private double velocidadX = 0;
+
     private static final double GRAVEDAD = 0.2;
-    private static final double FUERZA_SALTO = 4;
+    private static final double FUERZA_SALTO = 3.5;
     private static final double VELOCIDAD_MAXIMA = -4;
 
     public static final int FLECHA_ARRIBA = 38;
@@ -22,7 +23,6 @@ public class JuegoPersonaje extends Juego2DBase {
         this.jugador = new Personaje();
         this.plataformas = new LdPlataformas(jugador);
         this.enemigos = new LdEnemigos(jugador);
-        jugador.setImage("./doodle.png");
     }
 
     private void manejarMovimientoVertical(){
@@ -41,7 +41,7 @@ public class JuegoPersonaje extends Juego2DBase {
 
             jugador.efectuarMovimiento(0, -velocidadY);
         }
-        if (hayColision()){   
+        if(this.hayColision()){   
             plataformas.comprobarPlataformasFragiles();     
             velocidadY = FUERZA_SALTO;
         }
@@ -50,11 +50,11 @@ public class JuegoPersonaje extends Juego2DBase {
     private boolean hayColision(){
         boolean colision = false;
 
-        for(int i = 0; i < 5 && !colision && jugador.getFigura().getCentroide().getY() >= plataformas.get(i).getFigura().getCentroide().getY() && velocidadY < 0; i++){
+        for(int i = 0; i < 5 && !colision && jugador.getFigura().getCentroide().getY() >= plataformas.get(i).getFigura().getCentroide().getY() && velocidadY < 0.5; i++){
             colision = plataformas.get(i).hayColision(jugador);
+            
             if(colision && plataformas.get(i) instanceof PlataformaFragil){
-                PlataformaFragil pf = (PlataformaFragil) plataformas.get(i);
-                pf.desactivar();
+                plataformas.comprobarPlataformasFragiles();
             }
         }
         return colision;
