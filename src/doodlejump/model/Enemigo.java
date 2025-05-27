@@ -5,7 +5,6 @@ import stdlib.StdRandom;
 
 import src.soporte.ObjetoGrafico;
 import src.soporte.ObjetoGraficoMovil;
-import src.soporte.base.IFigura;
 import src.soporte.base.Poligono;
 import src.soporte.base.Punto;
 
@@ -15,19 +14,15 @@ public class Enemigo extends ObjetoGraficoMovil{
     protected String[] fotosEnemigos = {"./enemigo1.png", "./enemigo2.png", "./enemigo3.png"};
 
     public Enemigo(double x, double y, Personaje personajeRef) {
-        super(crearFigura(x, y), 1, StdRandom.uniformDouble(0,2), 0);
-        this.personajeRef = personajeRef;
-        this.setImage(fotosEnemigos[StdRandom.uniformInt(0,3)]);
-    }
-
-    private static IFigura crearFigura(double x, double y) {
-        return new Poligono(java.awt.Color.RED, new Punto(x, y),
+        super(new Poligono(java.awt.Color.RED, new Punto(x, y),
             Arrays.asList(
                 new Punto(x - Lado/2, y - (Lado-4)/2),
                 new Punto(x + Lado/2, y - (Lado-4)/2),
                 new Punto(x + Lado/2, y + (Lado-4)/2),
                 new Punto(x - Lado/2, y + (Lado-4)/2)
-            ));
+            )), 1, StdRandom.uniformDouble(0,2), 0);
+        this.personajeRef = personajeRef;
+        this.setImage(fotosEnemigos[StdRandom.uniformInt(0,3)]);
     }
 
     public void mover(){
