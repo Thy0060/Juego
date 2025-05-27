@@ -82,27 +82,22 @@ public class JuegoPersonaje extends Juego2DBase {
         StdDraw.text(50, 50, "Puntuación: " + LdPlataformas.puntuacion);
         StdDraw.text(50, 40, "Pulsa 'R' para reiniciar");
         StdDraw.show();
-        boolean reiniciarJuego = false;
 
-        while (!reiniciarJuego) {
-            if (StdDraw.isKeyPressed('R')) {
-                reiniciarJuego = true;
-            }
+        while (!StdDraw.isKeyPressed('R') && !StdDraw.isKeyPressed('r')) {
             StdDraw.pause(50);
         }
 
-        reiniciar(); 
+        while (StdDraw.isKeyPressed('R') || StdDraw.isKeyPressed('r')) {
+            StdDraw.pause(50);
+        }
+
+        reiniciar();
         jugar();    
     }
 
     @Override
     protected boolean comprobarCondicionesSeguirJugando() {
-        boolean reinicio = true;
-        
-        if (jugador.getFigura().getCentroide().getY() < 0 || hayColisionEnemigo()) {
-        reiniciar();  
-    }
-        return reinicio; 
+        return !(jugador.getFigura().getCentroide().getY() < 0 || hayColisionEnemigo());
     }
     
 
@@ -142,11 +137,11 @@ public class JuegoPersonaje extends Juego2DBase {
         this.jugador = new Personaje();
         this.velocidadX = 0;
         this.velocidadY = 0;
-    
+
         this.plataformas = new LdPlataformas(jugador);
         this.enemigos = new LdEnemigos(jugador);
         this.fondo = new Fondo();
 
         LdPlataformas.puntuacion = 0;
-}
+    }
 }
