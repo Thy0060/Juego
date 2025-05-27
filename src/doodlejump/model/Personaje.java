@@ -11,7 +11,6 @@ public class Personaje extends ObjetoGraficoDeUsuario {
     private static final String PERSONAJE_IMAGE = "./doodle.png";
 
     private static final double PERSONAJE_WIDTH = 6;
-    private static final double PERSONAJE_HEIGHT = 8;
 
     private static final double PERSONAJE_X = 50;
     private static final double PERSONAJE_Y = 50;
@@ -27,7 +26,7 @@ public class Personaje extends ObjetoGraficoDeUsuario {
             Arrays.asList(
                 new Punto(PERSONAJE_X-PERSONAJE_WIDTH,PERSONAJE_Y-PERSONAJE_WIDTH),
                 new Punto(PERSONAJE_X-PERSONAJE_WIDTH,PERSONAJE_Y+PERSONAJE_WIDTH),
-                new Punto(PERSONAJE_X  + PERSONAJE_WIDTH/4, PERSONAJE_Y + PERSONAJE_WIDTH),
+                new Punto(PERSONAJE_X + PERSONAJE_WIDTH/4, PERSONAJE_Y + PERSONAJE_WIDTH),
                 new Punto(PERSONAJE_X + PERSONAJE_WIDTH/4,PERSONAJE_Y+ PERSONAJE_WIDTH/3),
                 new Punto(PERSONAJE_X + PERSONAJE_WIDTH, PERSONAJE_Y + PERSONAJE_WIDTH/3),
                 new Punto(PERSONAJE_X + PERSONAJE_WIDTH, PERSONAJE_Y-PERSONAJE_WIDTH/5),
