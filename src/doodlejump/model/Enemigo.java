@@ -9,16 +9,16 @@ import src.soporte.base.Poligono;
 import src.soporte.base.Punto;
 
 public class Enemigo extends ObjetoGraficoMovil{
-    private static final double Lado = 12;
+    private static final double lado = 12;
     private String[] fotosEnemigos = {"./enemigo1.png", "./enemigo2.png", "./enemigo3.png"};
 
     protected Enemigo(double x, double y) {
         super(new Poligono(java.awt.Color.RED, new Punto(x, y),
             Arrays.asList(
-                new Punto(x - Lado/2, y - (Lado-4)/2),
-                new Punto(x + Lado/2, y - (Lado-4)/2),
-                new Punto(x + Lado/2, y + (Lado-4)/2),
-                new Punto(x - Lado/2, y + (Lado-4)/2)
+                new Punto(x - lado/2, y - (lado-4)/2),
+                new Punto(x + lado/2, y - (lado-4)/2),
+                new Punto(x + lado/2, y + (lado-4)/2),
+                new Punto(x - lado/2, y + (lado-4)/2)
             )), 1, StdRandom.uniformDouble(0,2), 0);
         this.setImage(fotosEnemigos[StdRandom.uniformInt(0,3)]);
     }
