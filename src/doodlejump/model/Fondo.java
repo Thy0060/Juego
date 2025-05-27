@@ -6,10 +6,10 @@ import src.soporte.ObjetoGrafico;
 import src.soporte.base.Poligono;
 import src.soporte.base.Punto;
 
-public class Fondo extends ObjetoGrafico {
+public final class Fondo extends ObjetoGrafico {
     public static final String FONDO_IMAGE = "./fondo.png";
 
-    public Fondo(){
+    protected Fondo(){
         super(new Poligono(java.awt.Color.GREEN, new Punto(50,50), 
             Arrays.asList(new Punto(0,0),
                 new Punto(100,0), 

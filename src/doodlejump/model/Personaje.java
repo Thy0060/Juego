@@ -8,21 +8,21 @@ import src.soporte.base.Poligono;
 import src.soporte.base.Punto;
 
 public class Personaje extends ObjetoGraficoDeUsuario {
-    public static final String PERSONAJE_IMAGE = "./doodle.png";
+    private static final String PERSONAJE_IMAGE = "./doodle.png";
 
-    public static final double PERSONAJE_WIDTH = 6;
-    public static final double PERSONAJE_HEIGHT = 8;
+    private static final double PERSONAJE_WIDTH = 6;
+    private static final double PERSONAJE_HEIGHT = 8;
 
-    public static final double PERSONAJE_X = 50;
-    public static final double PERSONAJE_Y = 50;
+    private static final double PERSONAJE_X = 50;
+    private static final double PERSONAJE_Y = 50;
     
-    public static final int FLECHA_ARRIBA = 38;
-    public static final int FLECHA_ABAJO = 40;
-    public static final int FLECHA_DERECHA = 39;
-    public static final int FLECHA_IZQUIERDA = 37;
+    private static final int FLECHA_ARRIBA = 38;
+    private static final int FLECHA_ABAJO = 40;
+    private static final int FLECHA_DERECHA = 39;
+    private static final int FLECHA_IZQUIERDA = 37;
     
 
-    public Personaje(){
+    protected Personaje(){
         super(new Poligono(java.awt.Color.DARK_GRAY, new Punto(PERSONAJE_X,PERSONAJE_Y),
             Arrays.asList(
                 new Punto(PERSONAJE_X-PERSONAJE_WIDTH,PERSONAJE_Y-PERSONAJE_WIDTH),
