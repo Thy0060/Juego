@@ -25,9 +25,14 @@ public class Personaje extends ObjetoGraficoDeUsuario {
         super(new Poligono(java.awt.Color.DARK_GRAY,
                     new Punto(PERSONAJE_X,PERSONAJE_Y),
                     Arrays.asList(new Punto[]{new Punto(PERSONAJE_X-PERSONAJE_WIDTH,PERSONAJE_Y-PERSONAJE_WIDTH),
-                                new Punto(PERSONAJE_X+PERSONAJE_WIDTH,PERSONAJE_Y-PERSONAJE_WIDTH),
-                                new Punto(PERSONAJE_X+PERSONAJE_WIDTH,PERSONAJE_Y+PERSONAJE_WIDTH),
-                                new Punto(PERSONAJE_X-PERSONAJE_WIDTH,PERSONAJE_Y+PERSONAJE_WIDTH)}
+                                new Punto(PERSONAJE_X-PERSONAJE_WIDTH,PERSONAJE_Y+PERSONAJE_WIDTH),
+                                new Punto(PERSONAJE_X  + PERSONAJE_WIDTH/4, PERSONAJE_Y + PERSONAJE_WIDTH),
+                                new Punto(PERSONAJE_X + PERSONAJE_WIDTH/4,PERSONAJE_Y+ PERSONAJE_WIDTH/3),
+                                new Punto(PERSONAJE_X + PERSONAJE_WIDTH, PERSONAJE_Y + PERSONAJE_WIDTH/3),
+                                new Punto(PERSONAJE_X + PERSONAJE_WIDTH, PERSONAJE_Y-PERSONAJE_WIDTH/5),
+                                new Punto(PERSONAJE_X + PERSONAJE_WIDTH/4, PERSONAJE_Y-PERSONAJE_WIDTH/5),
+                                new Punto(PERSONAJE_X + PERSONAJE_WIDTH/4, PERSONAJE_Y-PERSONAJE_WIDTH),
+                    }
                 )), FLECHA_ARRIBA, FLECHA_ABAJO, FLECHA_DERECHA, FLECHA_IZQUIERDA);
 
         setImage(PERSONAJE_IMAGE);
