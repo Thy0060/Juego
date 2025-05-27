@@ -9,11 +9,11 @@ import src.soporte.base.Poligono;
 import src.soporte.base.Punto;
 
 public class Plataforma extends ObjetoGraficoMovil {
-    public static final double ANCHO = 12;
-    public static final double ALTO = 3;
-    public static final String PLATAFORMA = "./plataforma.png";
+    private static final double ANCHO = 12;
+    private static final double ALTO = 3;
+    private static final String PLATAFORMA = "./plataforma.png";
 
-    public Plataforma(double x, double y, double incX, double incY){
+    protected Plataforma(double x, double y, double incX, double incY){
         super(crearFigura(x, y), 1, incX, incY);
         this.setImage(PLATAFORMA);
     }
