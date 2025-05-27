@@ -97,8 +97,14 @@ public class JuegoPersonaje extends Juego2DBase {
 
     @Override
     protected boolean comprobarCondicionesSeguirJugando() {
-        return jugador.getFigura().getCentroide().getY() < 0 || hayColisionEnemigo();
+        boolean reinicio = true;
+        
+        if (jugador.getFigura().getCentroide().getY() < 0 || hayColisionEnemigo()) {
+        reiniciar();  
     }
+        return reinicio; 
+    }
+    
 
     @Override
     protected void pintarObjetos() {
