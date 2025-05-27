@@ -7,6 +7,7 @@ public class JuegoPersonaje extends Juego2DBase {
     protected Personaje jugador;
     protected LdPlataformas plataformas;
     protected LdEnemigos enemigos;
+    protected Fondo fondo;
     private double velocidadY = 0;
     private double velocidadX = 0;
 
@@ -23,6 +24,7 @@ public class JuegoPersonaje extends Juego2DBase {
         this.jugador = new Personaje();
         this.plataformas = new LdPlataformas(jugador);
         this.enemigos = new LdEnemigos(jugador);
+        this.fondo = new Fondo();
     }
 
     private void manejarMovimientoVertical(){
@@ -87,6 +89,7 @@ public class JuegoPersonaje extends Juego2DBase {
 
     @Override
     protected void pintarObjetos() {
+        fondo.pintar();
         jugador.pintar();
         plataformas.pintar();
         enemigos.pintar();
