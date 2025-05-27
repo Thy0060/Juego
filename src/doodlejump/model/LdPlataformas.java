@@ -8,11 +8,11 @@ public class LdPlataformas {
     private Personaje personajeRef;
     protected static int puntuacion = 0;
     
-    public static int getPuntuacion() {
+    protected static int getPuntuacion() {
         return puntuacion;
     }
 
-    public LdPlataformas(Personaje personajeRef){
+    protected LdPlataformas(Personaje personajeRef){
         this.personajeRef = personajeRef;
         for(int i = 0; i <= 4; i++){
             if(i==0){
@@ -28,12 +28,12 @@ public class LdPlataformas {
         LdPlataformas.puntuacion = 0;
     }
 
-    public void comprobarPlataformas(){
+    protected void comprobarPlataformas(){
         if(plataformas.get(0).getFigura().getCentroide().getY()<0)
             generarNuevaPlataforma();
     }
 
-    public void generarNuevaPlataforma(){
+    protected void generarNuevaPlataforma(){
         plataformas.remove(0);
 
         int tipo = StdRandom.uniformInt(0, 4);
@@ -54,26 +54,35 @@ public class LdPlataformas {
         }
     }
     
-    public Plataforma get(int i){
+    protected Plataforma get(int i){
         return plataformas.get(i);
     }
     
-    public int size(){
+    protected int size(){
         return plataformas.size();
     }
 
-    public void pintar() {
+    protected void pintar() {
         for (int i = 0; i < plataformas.size(); i++) {
             plataformas.get(i).pintar();
         }
     }
 
-    public void add(int i, Plataforma plataforma){
+    protected void add(int i, Plataforma plataforma){
         this.plataformas.add(i, plataforma);
     }
 
-    public void remove(int i) {
+    protected void remove(int i) {
         this.plataformas.remove(i);
+    }
+
+    protected void mover(){
+    for(int i = 0; plataformas.size() > i; i ++){
+            if(plataformas.get(i) instanceof PlataformaMovil){
+                PlataformaMovil movil = (PlataformaMovil) plataformas.get(i); 
+                movil.mover(); 
+            }
+        }
     }
 
 }

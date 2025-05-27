@@ -45,12 +45,7 @@ public class JuegoDoodle extends Juego2DBase {
         plataformas.comprobarPlataformas();
         enemigos.comprobarEnemigos();
         enemigos.mover();
-        for(int i = 0; plataformas.size() > i; i ++){
-            if(plataformas.get(i) instanceof PlataformaMovil){
-                PlataformaMovil movil = (PlataformaMovil) plataformas.get(i); 
-                movil.mover(); 
-            }
-        }
+        plataformas.mover();
     }
 
     private boolean hayColision(){

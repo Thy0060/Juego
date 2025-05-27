@@ -51,6 +51,5 @@ public class LdEnemigos {
                 enemigos.get(i).setIncX(-enemigos.get(i).getIncX());
             enemigos.get(i).avanzar();
         }
-
     }
 }
