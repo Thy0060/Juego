@@ -80,7 +80,7 @@ public class JuegoDoodle extends Juego2DBase {
         }
     }
 
-        private void manejarMovimientoHorizontal(){
+    private void manejarMovimientoHorizontal(){
         velocidadX = 0;
         if (StdDraw.isKeyPressed(flechaIzquierda)) 
             velocidadX = -2;
