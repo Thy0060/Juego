@@ -13,14 +13,14 @@ public class JuegoDoodle extends Juego2DBase {
     private double velocidadY = 0;
     private double velocidadX = 0;
 
-    private static final double GRAVEDAD = 0.2;
-    private static final double FUERZA_SALTO = 4;
-    private static final double VELOCIDAD_MAXIMA = -3;
+    private static final double gravedad = 0.2;
+    private static final double fuerzaSalto = 4;
+    private static final double velocidadMax = -3;
 
-    public static final int FLECHA_ARRIBA = 38;
-    public static final int FLECHA_ABAJO = 40;
-    public static final int FLECHA_DERECHA = 39;
-    public static final int FLECHA_IZQUIERDA = 37;
+    public static final int flechaArriba = 38;
+    public static final int flechaAbajo = 40;
+    public static final int flechaDerecha = 39;
+    public static final int flechaIzquierda = 37;
 
     public JuegoDoodle() {
         this.jugador = new Personaje();
@@ -67,8 +67,8 @@ public class JuegoDoodle extends Juego2DBase {
     }
 
     private void manejarMovimientoVertical(){
-        if(velocidadY >= VELOCIDAD_MAXIMA)
-            velocidadY -= GRAVEDAD;
+        if(velocidadY >= velocidadMax)
+            velocidadY -= gravedad;
 
         jugador.efectuarMovimiento(0,velocidadY);
 
@@ -83,15 +83,15 @@ public class JuegoDoodle extends Juego2DBase {
             jugador.efectuarMovimiento(0, -velocidadY);
         }
         if(this.hayColision()){       
-            velocidadY = FUERZA_SALTO;
+            velocidadY = fuerzaSalto;
         }
     }
 
         private void manejarMovimientoHorizontal(){
         velocidadX = 0;
-        if (StdDraw.isKeyPressed(FLECHA_IZQUIERDA)) 
+        if (StdDraw.isKeyPressed(flechaIzquierda)) 
             velocidadX = -2;
-        if (StdDraw.isKeyPressed(FLECHA_DERECHA)) 
+        if (StdDraw.isKeyPressed(flechaDerecha)) 
             velocidadX = 2; 
         jugador.efectuarMovimiento(velocidadX, 0);
     }

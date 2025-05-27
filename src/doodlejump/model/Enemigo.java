@@ -12,7 +12,7 @@ import src.soporte.base.Punto;
 public class Enemigo extends ObjetoGraficoMovil{
     public static final double Lado = 12;
     public static final String enemigoFoto = "./enemigo.png";
-    public Personaje personajeRef = null;
+    public Personaje personajeRef;
 
     public Enemigo(double x, double y, Personaje personajeRef) {
         super(crearFigura(x, y), 1, StdRandom.uniformDouble(0,2), 0);
