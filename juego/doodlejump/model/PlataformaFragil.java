@@ -10,11 +10,6 @@ public class PlataformaFragil extends Plataforma{
     }
     
     @Override
-    public void pintar() {
-        this.getFigura().pintar(); 
-    }
-
-    @Override
     public void mover(double incX, double incY) {
         this.colocar(incX, incY);
     }

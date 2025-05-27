@@ -3,31 +3,14 @@ package doodlejump.model;
 import stdlib.StdDraw;
 import stdlib.StdRandom;
 
-import model.ObjetoGrafico;
-
 public class PlataformaMovil extends Plataforma{
-    public static final double ANCHO = 12;
-    public static final double ALTO = 3;
-    public Personaje personajeRef = null;
-    protected boolean activa = true;
-    protected boolean colision = false;
 
     public PlataformaMovil(double x, double y, Personaje personajeRef) {
         super(x, y, personajeRef, StdRandom.uniformDouble(1,3), 0);
         this.getFigura().setColor(StdDraw.BLUE);
     }
 
-    public boolean estaActiva() {
-        return activa;
-    }
-
-    public void mover(double incX, double incY){
-        this.colocar(incX, incY);
-    }
-
-    public void recibirImpacto(ObjetoGrafico f){}
-
-    public void mover(){
+    public void moverHorizontal(){
         if(this.getFigura().getCentroide().getX() < 0)
             this.colocar(99, 0);
         
