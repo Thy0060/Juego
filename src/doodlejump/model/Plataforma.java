@@ -11,12 +11,10 @@ import src.soporte.base.Punto;
 public class Plataforma extends ObjetoGraficoMovil {
     private static final double ANCHO = 12;
     private static final double ALTO = 3;
-    private Personaje personajeRef;
     private static final String PLATAFORMA = "./plataforma.png";
 
-    protected Plataforma(double x, double y, Personaje personajeRef, double incX, double incY){
+    protected Plataforma(double x, double y, double incX, double incY){
         super(crearFigura(x, y), 1, incX, incY);
-        this.personajeRef = personajeRef;
         this.setImage(PLATAFORMA);
     }
 

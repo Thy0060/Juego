@@ -10,10 +10,9 @@ import src.soporte.base.Punto;
 
 public class Enemigo extends ObjetoGraficoMovil{
     private static final double Lado = 12;
-    private Personaje personajeRef;
     private String[] fotosEnemigos = {"./enemigo1.png", "./enemigo2.png", "./enemigo3.png"};
 
-    protected Enemigo(double x, double y, Personaje personajeRef) {
+    protected Enemigo(double x, double y) {
         super(new Poligono(java.awt.Color.RED, new Punto(x, y),
             Arrays.asList(
                 new Punto(x - Lado/2, y - (Lado-4)/2),
@@ -21,7 +20,6 @@ public class Enemigo extends ObjetoGraficoMovil{
                 new Punto(x + Lado/2, y + (Lado-4)/2),
                 new Punto(x - Lado/2, y + (Lado-4)/2)
             )), 1, StdRandom.uniformDouble(0,2), 0);
-        this.personajeRef = personajeRef;
         this.setImage(fotosEnemigos[StdRandom.uniformInt(0,3)]);
     }
 

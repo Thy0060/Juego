@@ -7,7 +7,7 @@ public class PlataformaMovil extends Plataforma{
 private static final String PLATAFORMA_MOVIL = "./plataformaMovil.png";
 
     protected PlataformaMovil(double x, double y, Personaje personajeRef) {
-        super(x, y, personajeRef, StdRandom.uniformDouble(1,3), 0);
+        super(x, y, StdRandom.uniformDouble(1,3), 0);
         this.getFigura().setColor(StdDraw.BLUE);
         this.setImage(PLATAFORMA_MOVIL);
     }
