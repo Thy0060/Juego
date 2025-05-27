@@ -52,8 +52,8 @@ public class JuegoPersonaje extends Juego2DBase {
 
         for(int i = 0; i < 5 && !colision && jugador.getFigura().getCentroide().getY() >= plataformas.get(i).getFigura().getCentroide().getY() && velocidadY < 0; i++){
             colision = plataformas.get(i).hayColision(jugador);
-            if(colision && plataformas.get(i) instanceof PlataformaFalsa){
-                PlataformaFalsa pf = (PlataformaFalsa) plataformas.get(i);
+            if(colision && plataformas.get(i) instanceof PlataformaFragil){
+                PlataformaFragil pf = (PlataformaFragil) plataformas.get(i);
                 pf.desactivar();
             }
         }
