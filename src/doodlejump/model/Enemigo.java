@@ -9,11 +9,11 @@ import src.soporte.base.Poligono;
 import src.soporte.base.Punto;
 
 public class Enemigo extends ObjetoGraficoMovil{
-    public static final double Lado = 12;
-    public Personaje personajeRef;
-    protected String[] fotosEnemigos = {"./enemigo1.png", "./enemigo2.png", "./enemigo3.png"};
+    private static final double Lado = 12;
+    private Personaje personajeRef;
+    private String[] fotosEnemigos = {"./enemigo1.png", "./enemigo2.png", "./enemigo3.png"};
 
-    public Enemigo(double x, double y, Personaje personajeRef) {
+    protected Enemigo(double x, double y, Personaje personajeRef) {
         super(new Poligono(java.awt.Color.RED, new Punto(x, y),
             Arrays.asList(
                 new Punto(x - Lado/2, y - (Lado-4)/2),
@@ -25,7 +25,7 @@ public class Enemigo extends ObjetoGraficoMovil{
         this.setImage(fotosEnemigos[StdRandom.uniformInt(0,3)]);
     }
 
-    public void mover(){
+    protected void mover(){
         if (getFigura().getCentroide().getX()<0 || getFigura().getCentroide().getX()>100)
             setIncX(-getIncX());
         this.avanzar();
