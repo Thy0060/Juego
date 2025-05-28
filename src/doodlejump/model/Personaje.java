@@ -38,6 +38,5 @@ final class Personaje extends ObjetoGraficoDeUsuario {
         this.colocar(vX,vY);
     }
     
-    public void recibirImpacto(ObjetoGrafico otrafigura){
-    }
+    public void recibirImpacto(ObjetoGrafico otrafigura){}
 }
