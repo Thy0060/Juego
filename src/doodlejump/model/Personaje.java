@@ -16,7 +16,7 @@ final class Personaje extends ObjetoGraficoDeUsuario {
     private static final int flechaDerecha = 39;
     private static final int flechaIzquierda = 37;
     
-    private static final String PERSONAJE_IMAGE = "./doodle.png";
+    private static final String personaje = "./doodle.png";
 
     protected Personaje(){
         super(new Poligono(java.awt.Color.DARK_GRAY, new Punto(posicionInicial,posicionInicial),
@@ -31,7 +31,7 @@ final class Personaje extends ObjetoGraficoDeUsuario {
                 new Punto(posicionInicial + lado/4, posicionInicial - lado))), 
             flechaArriba, flechaAbajo, flechaDerecha, flechaIzquierda);
 
-        setImage(PERSONAJE_IMAGE);
+        setImage(personaje);
     }
     
     public void efectuarMovimiento(double vX, double vY){
