@@ -5,7 +5,7 @@ import stdlib.StdDraw;
 import src.soporte.Juego2DBase;
 import src.soporte.base.Punto;
 
-public class JuegoDoodle extends Juego2DBase {
+public final class JuegoDoodle extends Juego2DBase{
     private final Personaje jugador;
     private final LdPlataformas plataformas;
     private final LdEnemigos enemigos;

@@ -3,7 +3,7 @@ package src.doodlejump.model;
 import tads.*;
 import stdlib.StdRandom;
 
-final class LdEnemigos {
+final class LdEnemigos{
     protected final IList<Enemigo> enemigos = new ArrayList<>();
 
     protected LdEnemigos(){
