@@ -23,7 +23,7 @@ final class Enemigo extends ObjetoGraficoMovil{
         this.setImage(fotosEnemigos[StdRandom.uniformInt(0,3)]);
     }
 
-    protected final void mover(){
+    protected void mover(){
         if (getFigura().getCentroide().getX()<0 || getFigura().getCentroide().getX()>100)
             setIncX(-getIncX());
         this.avanzar();

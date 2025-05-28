@@ -4,7 +4,7 @@ import stdlib.StdDraw;
 import stdlib.StdRandom;
 
 final class PlataformaMovil extends Plataforma{
-private static final String plataformaMovil = "./plataformaMovil.png";
+    private static final String plataformaMovil = "./plataformaMovil.png";
 
     protected PlataformaMovil(double x, double y) {
         super(x, y, StdRandom.uniformDouble(1,3), 0);

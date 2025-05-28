@@ -17,12 +17,12 @@ public class JuegoDoodle extends Juego2DBase {
     private static final double fuerzaSalto = 4;
     private static final double velocidadMax = -3;
 
-    public static final int flechaArriba = 38;
-    public static final int flechaAbajo = 40;
-    public static final int flechaDerecha = 39;
-    public static final int flechaIzquierda = 37;
+    protected static final int flechaArriba = 38;
+    protected static final int flechaAbajo = 40;
+    protected static final int flechaDerecha = 39;
+    protected static final int flechaIzquierda = 37;
 
-    public JuegoDoodle() {
+    public JuegoDoodle(){
         this.jugador = new Personaje();
         this.plataformas = new LdPlataformas();
         this.enemigos = new LdEnemigos();

@@ -12,39 +12,39 @@ final class LdEnemigos {
         enemigos.add(new Enemigo(StdRandom.uniformDouble(5,95), 700));
     }
 
-    protected final void comprobarEnemigos(){
+    protected void comprobarEnemigos(){
         if(enemigos.get(0).getFigura().getCentroide().getY() < 0)
             generarNuevoEnemigo();
     }
 
-    protected final void generarNuevoEnemigo(){
+    protected void generarNuevoEnemigo(){
         enemigos.remove(0);
         enemigos.add(new Enemigo(StdRandom.uniformDouble(5,95), enemigos.get(enemigos.size()-1).getFigura().getCentroide().getY() + StdRandom.uniformDouble(100, 300)));
     }
 
-    protected final Enemigo get(int i){
+    protected Enemigo get(int i){
         return enemigos.get(i);
     }
 
-    protected final int size(){
+    protected int size(){
         return enemigos.size();
     }
 
-    protected final void add(int i, Enemigo enemigo){
+    protected void add(int i, Enemigo enemigo){
         this.enemigos.add(i, enemigo);
     }
 
-    protected final void remove(int i) {
+    protected void remove(int i) {
         this.enemigos.remove(i);
     }
 
-    protected final void pintar(){
+    protected void pintar(){
         for(int i = 0; i < enemigos.size(); i++){
             enemigos.get(i).pintar();
         }
     }
     
-    protected final void mover(){
+    protected void mover(){
         for(int i = 0; i < enemigos.size(); i++){
             if (enemigos.get(i).getFigura().getCentroide().getX()<0 || enemigos.get(i).getFigura().getCentroide().getX()>100 )
                 enemigos.get(i).setIncX(-enemigos.get(i).getIncX());

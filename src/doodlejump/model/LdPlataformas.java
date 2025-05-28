@@ -26,12 +26,12 @@ final class LdPlataformas {
         LdPlataformas.puntuacion = 0;
     }
 
-    protected final void comprobarPlataformas(){
+    protected void comprobarPlataformas(){
         if(plataformas.get(0).getFigura().getCentroide().getY()<0)
             generarNuevaPlataforma();
     }
 
-    protected final void generarNuevaPlataforma(){
+    protected void generarNuevaPlataforma(){
         plataformas.remove(0);
 
         int tipo = StdRandom.uniformInt(0, 4);
@@ -52,29 +52,29 @@ final class LdPlataformas {
         }
     }
     
-    protected final Plataforma get(int i){
+    protected Plataforma get(int i){
         return plataformas.get(i);
     }
     
-    protected final int size(){
+    protected int size(){
         return plataformas.size();
     }
 
-    protected final void pintar() {
+    protected void pintar() {
         for (int i = 0; i < plataformas.size(); i++) {
             plataformas.get(i).pintar();
         }
     }
 
-    protected final void add(int i, Plataforma plataforma){
+    protected void add(int i, Plataforma plataforma){
         this.plataformas.add(i, plataforma);
     }
 
-    protected final void remove(int i) {
+    protected void remove(int i) {
         this.plataformas.remove(i);
     }
 
-    protected final void mover(){
+    protected void mover(){
         for(int i = 0; plataformas.size() > i; i ++){
             if(plataformas.get(i) instanceof PlataformaMovil){
                 PlataformaMovil movil = (PlataformaMovil) plataformas.get(i); 
